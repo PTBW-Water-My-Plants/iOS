@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220965AB2537D89E007B3DF8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 220965AA2537D89E007B3DF8 /* .swiftlint.yml */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
-		CA8E3D492536B2E900FE0E24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D482536B2E900FE0E24 /* ViewController.swift */; };
 		CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */; };
 		CA8E3D4E2536B2FD00FE0E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4D2536B2FD00FE0E24 /* Assets.xcassets */; };
 		CA8E3D512536B2FE00FE0E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4F2536B2FE00FE0E24 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220965AA2537D89E007B3DF8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA8E3D482536B2E900FE0E24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA8E3D4B2536B2E900FE0E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA8E3D4D2536B2FD00FE0E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA8E3D502536B2FE00FE0E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,9 +37,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220965AD2537E252007B3DF8 /* Storyboard Login */ = {
+			isa = PBXGroup;
+			children = (
+				CA8E3D4F2536B2FE00FE0E24 /* LaunchScreen.storyboard */,
+				CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */,
+			);
+			path = "Storyboard Login";
+			sourceTree = "<group>";
+		};
+		220965AE2537E273007B3DF8 /* Storyboard Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Storyboard Home";
+			sourceTree = "<group>";
+		};
+		220965AF2537E2C2007B3DF8 /* Storyboard Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Storyboard Profile";
+			sourceTree = "<group>";
+		};
+		220965B12537E311007B3DF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */,
+				CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */,
+				CA8E3D4D2536B2FD00FE0E24 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CA8E3D382536B2E900FE0E24 = {
 			isa = PBXGroup;
 			children = (
+				220965AA2537D89E007B3DF8 /* .swiftlint.yml */,
 				CA8E3D432536B2E900FE0E24 /* Water My Plants */,
 				CA8E3D422536B2E900FE0E24 /* Products */,
 			);
@@ -56,12 +90,10 @@
 		CA8E3D432536B2E900FE0E24 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
-				CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */,
-				CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */,
-				CA8E3D482536B2E900FE0E24 /* ViewController.swift */,
-				CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */,
-				CA8E3D4D2536B2FD00FE0E24 /* Assets.xcassets */,
-				CA8E3D4F2536B2FE00FE0E24 /* LaunchScreen.storyboard */,
+				220965AD2537E252007B3DF8 /* Storyboard Login */,
+				220965AE2537E273007B3DF8 /* Storyboard Home */,
+				220965AF2537E2C2007B3DF8 /* Storyboard Profile */,
+				220965B12537E311007B3DF8 /* Resources */,
 				CA8E3D522536B2FE00FE0E24 /* Info.plist */,
 			);
 			path = "Water My Plants";
@@ -77,6 +109,7 @@
 				CA8E3D3D2536B2E900FE0E24 /* Sources */,
 				CA8E3D3E2536B2E900FE0E24 /* Frameworks */,
 				CA8E3D3F2536B2E900FE0E24 /* Resources */,
+				225911DB2537D76400037935 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -124,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220965AB2537D89E007B3DF8 /* .swiftlint.yml in Resources */,
 				CA8E3D512536B2FE00FE0E24 /* LaunchScreen.storyboard in Resources */,
 				CA8E3D4E2536B2FD00FE0E24 /* Assets.xcassets in Resources */,
 				CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */,
@@ -132,12 +166,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		225911DB2537D76400037935 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CA8E3D3D2536B2E900FE0E24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8E3D492536B2E900FE0E24 /* ViewController.swift in Sources */,
 				CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */,
 				CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */,
 			);
