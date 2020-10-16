@@ -7,11 +7,22 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+enum LoginType {
+    case signUp
+    case signIn
+}
 
+class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.
     }
     
@@ -25,8 +36,22 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        
+    }
+    
+    
+    
+    @IBAction func signUpSegmenteType(_ sender: Any) {
+    }
+    
+    
+    
 }
+
+
 
 /*
  
