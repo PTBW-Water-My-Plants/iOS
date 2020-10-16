@@ -34,7 +34,7 @@
                                             <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="d2G-TC-TzE" kind="show" identifier="LoginSegueHomeRef" id="BHq-1Q-ocK"/>
+                                            <segue destination="d2G-TC-TzE" kind="presentation" identifier="LoginSegueHomeRef" modalPresentationStyle="fullScreen" id="BHq-1Q-ocK"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK9-ba-l0c">
