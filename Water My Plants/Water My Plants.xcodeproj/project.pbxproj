@@ -3,17 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		220965AB2537D89E007B3DF8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 220965AA2537D89E007B3DF8 /* .swiftlint.yml */; };
 		220965BA2537F12F007B3DF8 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220965B92537F12F007B3DF8 /* HomeView.storyboard */; };
 		220965BD2537F145007B3DF8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220965BC2537F145007B3DF8 /* Profile.storyboard */; };
-		2271CC8925394AC500F5B118 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2271CC8825394AC500F5B118 /* APIController.swift */; };
+		224C2D8F253B5DEC005FD3C3 /* PlantRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */; };
+		224C2D92253B5E11005FD3C3 /* Plant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */; };
+		2271CC8925394AC500F5B118 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2271CC8825394AC500F5B118 /* PlantController.swift */; };
 		2271CC8D25394E6C00F5B118 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2271CC8B25394E6C00F5B118 /* CoreDataModel.xcdatamodeld */; };
-		2271CC912539549B00F5B118 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2271CC902539549B00F5B118 /* CoreData.swift */; };
-		22B6B26B2538833700E16E81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B6B26A2538833700E16E81 /* LoginViewController.swift */; };
+		2271CC912539549B00F5B118 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2271CC902539549B00F5B118 /* CoreDataStack.swift */; };
+		22811910253BF1DA00539C68 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281190F253BF1DA00539C68 /* AuthServices.swift */; };
+		229FD166253BC9A800E92994 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FD165253BC9A800E92994 /* User.swift */; };
+		229FD16A253BEB9600E92994 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229FD169253BEB9600E92994 /* GoogleService-Info.plist */; };
+		22B6B26B2538833700E16E81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B6B26A2538833700E16E81 /* RegistrationViewController.swift */; };
+		22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B71105253D3C9600C68699 /* LoginViewController.swift */; };
+		41F12D334FCBD0C1C30BA717 /* Pods_Water_My_Plants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
 		CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */; };
@@ -22,13 +29,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1480E184DB4564E47DC745D3 /* Pods-Water My Plants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.release.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.release.xcconfig"; sourceTree = "<group>"; };
+		21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Water_My_Plants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220965AA2537D89E007B3DF8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		220965B92537F12F007B3DF8 /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		220965BC2537F145007B3DF8 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		2271CC8825394AC500F5B118 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepresentation.swift; sourceTree = "<group>"; };
+		224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+Convenience.swift"; sourceTree = "<group>"; };
+		2271CC8825394AC500F5B118 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = "<group>"; };
 		2271CC8C25394E6C00F5B118 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
-		2271CC902539549B00F5B118 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		22B6B26A2538833700E16E81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2271CC902539549B00F5B118 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2281190F253BF1DA00539C68 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		229FD165253BC9A800E92994 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		229FD169253BEB9600E92994 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22B6B26A2538833700E16E81 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		22B71105253D3C9600C68699 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B75CD8BDC62130A97F5B1304 /* Pods-Water My Plants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.debug.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.debug.xcconfig"; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F12D334FCBD0C1C30BA717 /* Pods_Water_My_Plants.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,22 +101,58 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2271CC8725394A9700F5B118 /* Networking */ = {
+		224C2D8D253B5DBF005FD3C3 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2271CC8825394AC500F5B118 /* APIController.swift */,
-				2271CC8B25394E6C00F5B118 /* CoreDataModel.xcdatamodeld */,
-				2271CC902539549B00F5B118 /* CoreData.swift */,
+				2271CC8825394AC500F5B118 /* PlantController.swift */,
 			);
-			path = Networking;
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		2271CC8725394A9700F5B118 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				2271CC8B25394E6C00F5B118 /* CoreDataModel.xcdatamodeld */,
+				2271CC902539549B00F5B118 /* CoreDataStack.swift */,
+				224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */,
+				224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */,
+				229FD165253BC9A800E92994 /* User.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		2281190E253BF1AF00539C68 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2281190F253BF1DA00539C68 /* AuthServices.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		22B6B2692538831700E16E81 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				22B6B26A2538833700E16E81 /* LoginViewController.swift */,
+				22B6B26A2538833700E16E81 /* RegistrationViewController.swift */,
+				22B71105253D3C9600C68699 /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2605541DFDBC755271FFA611 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B75CD8BDC62130A97F5B1304 /* Pods-Water My Plants.debug.xcconfig */,
+				1480E184DB4564E47DC745D3 /* Pods-Water My Plants.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7DF3F5ADFF8A405C65D48053 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CA8E3D382536B2E900FE0E24 = {
@@ -108,6 +161,8 @@
 				220965AA2537D89E007B3DF8 /* .swiftlint.yml */,
 				CA8E3D432536B2E900FE0E24 /* Water My Plants */,
 				CA8E3D422536B2E900FE0E24 /* Products */,
+				2605541DFDBC755271FFA611 /* Pods */,
+				7DF3F5ADFF8A405C65D48053 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,13 +177,16 @@
 		CA8E3D432536B2E900FE0E24 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
-				2271CC8725394A9700F5B118 /* Networking */,
+				2281190E253BF1AF00539C68 /* Network */,
+				2271CC8725394A9700F5B118 /* CoreDataModels */,
+				224C2D8D253B5DBF005FD3C3 /* Model Controllers */,
 				22B6B2692538831700E16E81 /* View Controllers */,
 				220965AD2537E252007B3DF8 /* Storyboard Login */,
 				220965AE2537E273007B3DF8 /* Storyboard Home */,
 				220965AF2537E2C2007B3DF8 /* Storyboard Profile */,
 				220965B12537E311007B3DF8 /* Resources */,
 				CA8E3D522536B2FE00FE0E24 /* Info.plist */,
+				229FD169253BEB9600E92994 /* GoogleService-Info.plist */,
 			);
 			path = "Water My Plants";
 			sourceTree = "<group>";
@@ -140,10 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA8E3D552536B2FE00FE0E24 /* Build configuration list for PBXNativeTarget "Water My Plants" */;
 			buildPhases = (
+				E03FFC01F9126A53E5F89935 /* [CP] Check Pods Manifest.lock */,
 				CA8E3D3D2536B2E900FE0E24 /* Sources */,
 				CA8E3D3E2536B2E900FE0E24 /* Frameworks */,
 				CA8E3D3F2536B2E900FE0E24 /* Resources */,
 				225911DB2537D76400037935 /* ShellScript */,
+				F0C478A4A1965805C10AF11E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +257,7 @@
 				CA8E3D512536B2FE00FE0E24 /* LaunchScreen.storyboard in Resources */,
 				CA8E3D4E2536B2FD00FE0E24 /* Assets.xcassets in Resources */,
 				CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */,
+				229FD16A253BEB9600E92994 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +281,45 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		E03FFC01F9126A53E5F89935 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Water My Plants-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0C478A4A1965805C10AF11E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Water My Plants/Pods-Water My Plants-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Water My Plants/Pods-Water My Plants-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Water My Plants/Pods-Water My Plants-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -227,12 +327,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2271CC8925394AC500F5B118 /* APIController.swift in Sources */,
-				22B6B26B2538833700E16E81 /* LoginViewController.swift in Sources */,
+				2271CC8925394AC500F5B118 /* PlantController.swift in Sources */,
+				224C2D92253B5E11005FD3C3 /* Plant+Convenience.swift in Sources */,
+				22B6B26B2538833700E16E81 /* RegistrationViewController.swift in Sources */,
 				CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */,
 				CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */,
-				2271CC912539549B00F5B118 /* CoreData.swift in Sources */,
+				22811910253BF1DA00539C68 /* AuthServices.swift in Sources */,
+				224C2D8F253B5DEC005FD3C3 /* PlantRepresentation.swift in Sources */,
+				2271CC912539549B00F5B118 /* CoreDataStack.swift in Sources */,
+				229FD166253BC9A800E92994 /* User.swift in Sources */,
 				2271CC8D25394E6C00F5B118 /* CoreDataModel.xcdatamodeld in Sources */,
+				22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +481,7 @@
 		};
 		CA8E3D562536B2FE00FE0E24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B75CD8BDC62130A97F5B1304 /* Pods-Water My Plants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -395,6 +501,7 @@
 		};
 		CA8E3D572536B2FE00FE0E24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1480E184DB4564E47DC745D3 /* Pods-Water My Plants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
