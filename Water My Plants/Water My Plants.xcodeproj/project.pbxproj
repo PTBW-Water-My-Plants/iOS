@@ -22,6 +22,10 @@
 		22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B71105253D3C9600C68699 /* LoginViewController.swift */; };
 		22BB1030253E6F5000A7CCDA /* OpeingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */; };
 		41F12D334FCBD0C1C30BA717 /* Pods_Water_My_Plants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */; };
+		CA3E4AA5253E8386008FB785 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AA4253E8385008FB785 /* BaseTableViewController.swift */; };
+		CA3E4AA8253E83D3008FB785 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AA7253E83D3008FB785 /* AddPlantViewController.swift */; };
+		CA3E4AAD253E8408008FB785 /* PlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AAC253E8408008FB785 /* PlantTableViewCell.swift */; };
+		CA3E4AB2253E844F008FB785 /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AB1253E844E008FB785 /* LocalNotificationHelper.swift */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
 		CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 		22B71105253D3C9600C68699 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeingViewController.swift; sourceTree = "<group>"; };
 		B75CD8BDC62130A97F5B1304 /* Pods-Water My Plants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.debug.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.debug.xcconfig"; sourceTree = "<group>"; };
+		CA3E4AA4253E8385008FB785 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		CA3E4AA7253E83D3008FB785 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
+		CA3E4AAC253E8408008FB785 /* PlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTableViewCell.swift; sourceTree = "<group>"; };
+		CA3E4AB1253E844E008FB785 /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +145,8 @@
 				22B6B26A2538833700E16E81 /* RegistrationViewController.swift */,
 				22B71105253D3C9600C68699 /* LoginViewController.swift */,
 				22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */,
+				CA3E4AA4253E8385008FB785 /* BaseTableViewController.swift */,
+				CA3E4AA7253E83D3008FB785 /* AddPlantViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -156,6 +166,30 @@
 				21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA3E4AAA253E83DD008FB785 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA3E4AAB253E83E8008FB785 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CA3E4AAB253E83E8008FB785 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CA3E4AAC253E8408008FB785 /* PlantTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CA3E4AB0253E8429008FB785 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CA3E4AB1253E844E008FB785 /* LocalNotificationHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		CA8E3D382536B2E900FE0E24 = {
@@ -180,6 +214,8 @@
 		CA8E3D432536B2E900FE0E24 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
+				CA3E4AB0253E8429008FB785 /* Helpers */,
+				CA3E4AAA253E83DD008FB785 /* Views */,
 				2281190E253BF1AF00539C68 /* Network */,
 				2271CC8725394A9700F5B118 /* CoreDataModels */,
 				224C2D8D253B5DBF005FD3C3 /* Model Controllers */,
@@ -332,16 +368,20 @@
 			files = (
 				2271CC8925394AC500F5B118 /* PlantController.swift in Sources */,
 				224C2D92253B5E11005FD3C3 /* Plant+Convenience.swift in Sources */,
+				CA3E4AA8253E83D3008FB785 /* AddPlantViewController.swift in Sources */,
+				CA3E4AA5253E8386008FB785 /* BaseTableViewController.swift in Sources */,
 				22B6B26B2538833700E16E81 /* RegistrationViewController.swift in Sources */,
 				CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */,
 				CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */,
 				22811910253BF1DA00539C68 /* AuthServices.swift in Sources */,
 				224C2D8F253B5DEC005FD3C3 /* PlantRepresentation.swift in Sources */,
 				2271CC912539549B00F5B118 /* CoreDataStack.swift in Sources */,
+				CA3E4AB2253E844F008FB785 /* LocalNotificationHelper.swift in Sources */,
 				229FD166253BC9A800E92994 /* User.swift in Sources */,
 				2271CC8D25394E6C00F5B118 /* CoreDataModel.xcdatamodeld in Sources */,
 				22BB1030253E6F5000A7CCDA /* OpeingViewController.swift in Sources */,
 				22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */,
+				CA3E4AAD253E8408008FB785 /* PlantTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
