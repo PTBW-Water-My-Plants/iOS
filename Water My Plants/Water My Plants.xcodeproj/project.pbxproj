@@ -11,6 +11,8 @@
 		220965BA2537F12F007B3DF8 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220965B92537F12F007B3DF8 /* HomeView.storyboard */; };
 		220965BD2537F145007B3DF8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220965BC2537F145007B3DF8 /* Profile.storyboard */; };
 		22B6B26B2538833700E16E81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B6B26A2538833700E16E81 /* LoginViewController.swift */; };
+		CA3E4A22253A1D37008FB785 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4A21253A1D37008FB785 /* AddPlantViewController.swift */; };
+		CA3E4A30253E70E8008FB785 /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4A2F253E70E8008FB785 /* LocalNotificationHelper.swift */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
 		CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */; };
@@ -18,7 +20,6 @@
 		CA8E3D512536B2FE00FE0E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4F2536B2FE00FE0E24 /* LaunchScreen.storyboard */; };
 		CAA3DCA1253936E0002C1EA3 /* PlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA3DCA0253936E0002C1EA3 /* PlantTableViewCell.swift */; };
 		CAA3DCA4253939FE002C1EA3 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA3DCA3253939FE002C1EA3 /* BaseTableViewController.swift */; };
-		CAA3DCAC253946E3002C1EA3 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA3DCAB253946E2002C1EA3 /* HomeCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		220965B92537F12F007B3DF8 /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		220965BC2537F145007B3DF8 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		22B6B26A2538833700E16E81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CA3E4A21253A1D37008FB785 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
+		CA3E4A2F253E70E8008FB785 /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		CA8E3D522536B2FE00FE0E24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAA3DCA0253936E0002C1EA3 /* PlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTableViewCell.swift; sourceTree = "<group>"; };
 		CAA3DCA3253939FE002C1EA3 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		CAA3DCAB253946E2002C1EA3 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +91,17 @@
 			children = (
 				22B6B26A2538833700E16E81 /* LoginViewController.swift */,
 				CAA3DCA3253939FE002C1EA3 /* BaseTableViewController.swift */,
-				CAA3DCAB253946E2002C1EA3 /* HomeCollectionViewController.swift */,
+				CA3E4A21253A1D37008FB785 /* AddPlantViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CA3E4A2E253E70C4008FB785 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CA3E4A2F253E70E8008FB785 /* LocalNotificationHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		CA8E3D382536B2E900FE0E24 = {
@@ -114,6 +124,7 @@
 		CA8E3D432536B2E900FE0E24 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
+				CA3E4A2E253E70C4008FB785 /* Helpers */,
 				CAA3DC9E253936B1002C1EA3 /* View */,
 				22B6B2692538831700E16E81 /* View Controllers */,
 				220965AD2537E252007B3DF8 /* Storyboard Login */,
@@ -235,10 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3E4A22253A1D37008FB785 /* AddPlantViewController.swift in Sources */,
 				22B6B26B2538833700E16E81 /* LoginViewController.swift in Sources */,
 				CAA3DCA1253936E0002C1EA3 /* PlantTableViewCell.swift in Sources */,
+				CA3E4A30253E70E8008FB785 /* LocalNotificationHelper.swift in Sources */,
 				CAA3DCA4253939FE002C1EA3 /* BaseTableViewController.swift in Sources */,
-				CAA3DCAC253946E3002C1EA3 /* HomeCollectionViewController.swift in Sources */,
 				CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */,
 				CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */,
 			);
