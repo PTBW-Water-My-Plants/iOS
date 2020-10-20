@@ -9,17 +9,15 @@ import UIKit
 
 class BaseTableViewController: UITableViewController {
     
+    let plantController = PlantController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+            tableView.register(PlantCell.self, forCellReuseIdentifier: "PlantCell")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+ 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,13 +27,28 @@ class BaseTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return MockData.plants.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PlantTableViewCell.reuseIdentifier, for: indexPath) as? PlantTableViewCell else { fatalError("Can't dequeue cell of type \(PlantTableViewCell.reuseIdentifier)") }
-    
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlantCell", for: indexPath) as? PlantCell else { fatalError("Can't dequeue cell of type \(PlantTableViewCell.reuseIdentifier)") }
+        let currentPlant = MockData.plants[indexPath.row]
+        cell.plantMock = currentPlant
+        
+        //MOCK DATA
+//        let urlData = URL(string: MockData.plantMock.imageUrl!)
+//        let data = try? Data(contentsOf: urlData!)
+        
+        //cell.plantMock
+        
+//        cell.plantName.text = MockData.plantMock.nickName
+//        cell.h2oFrequency.text = String(MockData.plantMock.h2oFrequency)
+//        cell.plantImageView.image = UIImage(data: data!)?.circleMask
         
 
         return cell
