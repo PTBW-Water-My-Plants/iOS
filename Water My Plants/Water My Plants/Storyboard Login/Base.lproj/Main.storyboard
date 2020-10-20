@@ -285,6 +285,7 @@
                     <navigationItem key="navigationItem" id="4B7-cQ-9cD"/>
                     <connections>
                         <outlet property="emailTextField" destination="O0U-Zc-zGK" id="PpH-2B-WtU"/>
+                        <outlet property="loginButton" destination="8RW-pf-uIz" id="XtU-aZ-sR5"/>
                         <outlet property="passwordTextField" destination="Hwp-gm-HST" id="5J8-T3-mMD"/>
                         <outlet property="usernameTextField" destination="bAt-g8-5hL" id="kGK-7K-ykY"/>
                     </connections>

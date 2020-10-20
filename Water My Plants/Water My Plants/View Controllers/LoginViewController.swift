@@ -10,6 +10,7 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,8 +21,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+        passwordTextField.isSecureTextEntry = true
     }
-    
 
     /*
     // MARK: - Navigation
@@ -34,18 +35,33 @@ class LoginViewController: UIViewController {
     */
     
     @IBAction func logInButtonTapped(_ sender: Any) {
-        guard let email = emailTextField.text, !email.isEmpty else { return }
-                guard let password = passwordTextField.text, !password.isEmpty else { return }
-                Auth.auth().signIn(withEmail: email, password: password) { (AuthDataResult, error) in
-                    if error != nil {
-                        print("Crap")
-                        return
-                    }
-                    print("Work")
-                    self.performSegue(withIdentifier: "loginGoToTabBarSegue", sender: nil)
-                }
-                emailTextField.text = ""
-                passwordTextField.text = ""
+        
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty,
+              let username = usernameTextField.text, !username.isEmpty else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { AuthDataResult, error in
+            if error != nil {
+                print("Failed to make a login")
+                return
+            }
+            print("Was able to log in to the home view")
+            self.performSegue(withIdentifier: "LoginHomeView", sender: nil)
+        }
+        
+        if emailTextField.text == "" {
+            
+        }
+//        emailTextField.text = ""
+//        passwordTextField.text = ""
+    }
+    
+    func disableLoginButton() {
+        let email = emailTextField.text, password = passwordTextField.text, username = usernameTextField.text
+
+        if ((email?.isEmpty) != nil), ((password?.isEmpty) != nil), ((username?.isEmpty) != nil) {
+            loginButton.isEnabled = false
+        }
     }
     
 }
