@@ -20,6 +20,7 @@
 		229FD16A253BEB9600E92994 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229FD169253BEB9600E92994 /* GoogleService-Info.plist */; };
 		22B6B26B2538833700E16E81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B6B26A2538833700E16E81 /* RegistrationViewController.swift */; };
 		22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B71105253D3C9600C68699 /* LoginViewController.swift */; };
+		22BB1030253E6F5000A7CCDA /* OpeingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */; };
 		41F12D334FCBD0C1C30BA717 /* Pods_Water_My_Plants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 		229FD169253BEB9600E92994 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22B6B26A2538833700E16E81 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		22B71105253D3C9600C68699 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeingViewController.swift; sourceTree = "<group>"; };
 		B75CD8BDC62130A97F5B1304 /* Pods-Water My Plants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.debug.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.debug.xcconfig"; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				22B6B26A2538833700E16E81 /* RegistrationViewController.swift */,
 				22B71105253D3C9600C68699 /* LoginViewController.swift */,
+				22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				2271CC912539549B00F5B118 /* CoreDataStack.swift in Sources */,
 				229FD166253BC9A800E92994 /* User.swift in Sources */,
 				2271CC8D25394E6C00F5B118 /* CoreDataModel.xcdatamodeld in Sources */,
+				22BB1030253E6F5000A7CCDA /* OpeingViewController.swift in Sources */,
 				22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

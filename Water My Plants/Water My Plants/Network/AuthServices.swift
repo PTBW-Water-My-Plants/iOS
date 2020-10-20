@@ -20,7 +20,7 @@ class AuthServices {
                 var dict: Dictionary<String, Any> = [
                     "uid": authData.user.uid,
                     "username": username,
-                    "email": authData.user.email,
+                    "email": authData.user.email ?? "",
                     "profileImageUrl": "",
                 ]
                 guard let imageSelected = image else {
@@ -36,7 +36,7 @@ class AuthServices {
                 metadata.contentType = "image/jpg"
                 storageProfileRef.putData(imageData, metadata: metadata, completion: { (storageMetaData, error) in
                     if error != nil {
-                        print(error?.localizedDescription)
+                        print(error?.localizedDescription ?? "")
                         return
                     }
                     storageProfileRef.downloadURL(completion: { (url, error) in
