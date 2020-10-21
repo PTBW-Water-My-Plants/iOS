@@ -44,7 +44,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qAU-no-F1x" kind="presentation" identifier="SignupSegue" modalPresentationStyle="fullScreen" id="DIo-F4-gav"/>
+                                    <segue destination="qAU-no-F1x" kind="presentation" identifier="Signup" modalPresentationStyle="fullScreen" id="DIo-F4-gav"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="trv-Km-IST">
@@ -61,7 +61,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <state key="normal" title="LOG IN"/>
                                         <connections>
-                                            <segue destination="VCm-Km-Rw2" kind="presentation" identifier="LoginSegue" modalPresentationStyle="fullScreen" id="bEj-yu-rof"/>
+                                            <segue destination="VCm-Km-Rw2" kind="presentation" identifier="Login" modalPresentationStyle="fullScreen" id="bEj-yu-rof"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -137,7 +137,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="signUpButtonTapped:" destination="qAU-no-F1x" eventType="touchUpInside" id="Tws-yw-eie"/>
-                                                    <segue destination="d2G-TC-TzE" kind="presentation" identifier="SignUpHomeSegue" modalPresentationStyle="fullScreen" id="foF-Tg-KEH"/>
+                                                    <segue destination="d2G-TC-TzE" kind="presentation" identifier="SignUpSegue" modalPresentationStyle="fullScreen" id="foF-Tg-KEH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -301,7 +301,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c0e-92-flu"/>
+        <segue reference="foF-Tg-KEH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Profile-ICon" width="673" height="673"/>
