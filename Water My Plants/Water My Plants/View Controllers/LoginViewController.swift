@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
         }
         
         if emailTextField.text == "" {
-            
+            loginButton.isHidden = true
         }
 //        emailTextField.text = ""
 //        passwordTextField.text = ""
