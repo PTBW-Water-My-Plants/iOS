@@ -23,6 +23,7 @@ class RegistrationViewController: UIViewController {
         setupUserImageView()
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+        passwordTextField.isSecureTextEntry = true
     }
     
     func setupUserImageView() {
@@ -48,7 +49,6 @@ class RegistrationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         self.view.endEditing(true)
