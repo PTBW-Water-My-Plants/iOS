@@ -57,10 +57,40 @@ class PlantCell : UITableViewCell {
         addSubview(h20Label)
         addSubview(plantNameLabel)
         
+        plantImage.anchor(top: topAnchor,
+                          left: leftAnchor,
+                          bottom: bottomAnchor,
+                          right: nil,
+                          paddingTop: 5,
+                          paddingLeft: 5,
+                          paddingBottom: 5,
+                          paddingRight: 0,
+                          width: 90,
+                          height: 0,
+                          enableInsets: false)
         
-        plantImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 0, width: 90, height: 0, enableInsets: false)
-        plantNameLabel.anchor(top: topAnchor, left: plantImage.rightAnchor, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: frame.size.width / 2, height: 0, enableInsets: false)
-        h20Label.anchor(top: plantNameLabel.bottomAnchor, left: plantImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: frame.size.width / 2, height: 0, enableInsets: false)
+        plantNameLabel.anchor(top: topAnchor,
+                              left: plantImage.rightAnchor,
+                              bottom: nil,
+                              right: nil,
+                              paddingTop: 20,
+                              paddingLeft: 10,
+                              paddingBottom: 0,
+                              paddingRight: 0,
+                              width: frame.size.width / 2,
+                              height: 0, enableInsets: false)
+        
+        h20Label.anchor(top: plantNameLabel.bottomAnchor,
+                        left: plantImage.rightAnchor,
+                        bottom: nil,
+                        right: nil,
+                        paddingTop: 0,
+                        paddingLeft: 10,
+                        paddingBottom: 0,
+                        paddingRight: 0,
+                        width: frame.size.width / 2,
+                        height: 0,
+                        enableInsets: false)
         
         
 //        let stackView = UIStackView(arrangedSubviews: [waterDropButton])
@@ -84,7 +114,7 @@ var circleMask: UIImage {
     let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
     imageView.contentMode = UIView.ContentMode.scaleAspectFill
     imageView.image = self
-    imageView.layer.cornerRadius = square.width/2
+    imageView.layer.cornerRadius = square.width / 2
     imageView.layer.borderColor = UIColor.white.cgColor
     imageView.layer.borderWidth = 5
     imageView.layer.masksToBounds = true
@@ -97,8 +127,17 @@ var circleMask: UIImage {
 }
 
 extension UIView {
- 
- func anchor (top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat, enableInsets: Bool) {
+ func anchor(top: NSLayoutYAxisAnchor?,
+              left: NSLayoutXAxisAnchor?,
+              bottom: NSLayoutYAxisAnchor?,
+              right: NSLayoutXAxisAnchor?,
+              paddingTop: CGFloat,
+              paddingLeft: CGFloat,
+              paddingBottom: CGFloat,
+              paddingRight: CGFloat,
+              width: CGFloat,
+              height: CGFloat,
+              enableInsets: Bool) {
  var topInset = CGFloat(0)
  var bottomInset = CGFloat(0)
  

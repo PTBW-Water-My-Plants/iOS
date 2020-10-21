@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		220965AB2537D89E007B3DF8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 220965AA2537D89E007B3DF8 /* .swiftlint.yml */; };
 		220965BA2537F12F007B3DF8 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220965B92537F12F007B3DF8 /* HomeView.storyboard */; };
-		220965BD2537F145007B3DF8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220965BC2537F145007B3DF8 /* Profile.storyboard */; };
 		224C2D8F253B5DEC005FD3C3 /* PlantRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */; };
 		224C2D92253B5E11005FD3C3 /* Plant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */; };
 		2271CC8925394AC500F5B118 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2271CC8825394AC500F5B118 /* PlantController.swift */; };
@@ -43,7 +42,6 @@
 		21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Water_My_Plants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220965AA2537D89E007B3DF8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		220965B92537F12F007B3DF8 /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
-		220965BC2537F145007B3DF8 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepresentation.swift; sourceTree = "<group>"; };
 		224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+Convenience.swift"; sourceTree = "<group>"; };
 		2271CC8825394AC500F5B118 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = "<group>"; };
@@ -101,14 +99,6 @@
 				220965B92537F12F007B3DF8 /* HomeView.storyboard */,
 			);
 			path = "Storyboard Home";
-			sourceTree = "<group>";
-		};
-		220965AF2537E2C2007B3DF8 /* Storyboard Profile */ = {
-			isa = PBXGroup;
-			children = (
-				220965BC2537F145007B3DF8 /* Profile.storyboard */,
-			);
-			path = "Storyboard Profile";
 			sourceTree = "<group>";
 		};
 		220965B12537E311007B3DF8 /* Resources */ = {
@@ -237,7 +227,6 @@
 				22B6B2692538831700E16E81 /* View Controllers */,
 				220965AD2537E252007B3DF8 /* Storyboard Login */,
 				220965AE2537E273007B3DF8 /* Storyboard Home */,
-				220965AF2537E2C2007B3DF8 /* Storyboard Profile */,
 				220965B12537E311007B3DF8 /* Resources */,
 				CA8E3D522536B2FE00FE0E24 /* Info.plist */,
 				229FD169253BEB9600E92994 /* GoogleService-Info.plist */,
@@ -305,7 +294,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				220965BD2537F145007B3DF8 /* Profile.storyboard in Resources */,
 				220965BA2537F12F007B3DF8 /* HomeView.storyboard in Resources */,
 				220965AB2537D89E007B3DF8 /* .swiftlint.yml in Resources */,
 				CA8E3D512536B2FE00FE0E24 /* LaunchScreen.storyboard in Resources */,
@@ -320,7 +308,8 @@
 /* Begin PBXShellScriptBuildPhase section */
 		225911DB2537D76400037935 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -331,7 +320,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
@@ -552,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M54A7BX79B;
 				INFOPLIST_FILE = "Water My Plants/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M54A7BX79B;
 				INFOPLIST_FILE = "Water My Plants/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
