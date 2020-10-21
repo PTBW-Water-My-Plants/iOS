@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlantRepresentation: Codable {
+struct PlantRepresentation: Codable, Equatable {
     var id: String
     var h2oFrequency: Int16
     var imageUrl: String?

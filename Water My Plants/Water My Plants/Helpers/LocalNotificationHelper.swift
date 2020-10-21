@@ -12,7 +12,7 @@ import UserNotifications
 class LocalNotificationHelper: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - Properties
-   // var plantController
+    var plantController: WaterMyPlantController?
     
     // MARK: - LocalNotificationController Delagate Methods
     
