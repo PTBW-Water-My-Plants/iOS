@@ -6,8 +6,24 @@ target 'Water My Plants' do
   use_frameworks!
 
   # Pods for Water My Plants
-pod 'Firebase'
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
-pod 'Firebase/Storage'
+pod 'Firebase/Core'
+ pod 'Firebase/Database'
+ pod 'Firebase/Auth'
+ pod 'Firebase/Storage'
+target 'Water My PlantsTests' do
+ inherit! :search_paths
+ # Pods for testing
+ pod 'Firebase/Core'
+ pod 'Firebase/Database'
+ pod 'Firebase/Auth'
+ pod 'Firebase/Storage'
+ end
+target 'Water My PlantsUITests' do
+ inherit! :search_paths
+ # Pods for testing
+pod 'Firebase/Core'
+ pod 'Firebase/Database'
+ pod 'Firebase/Auth'
+ pod 'Firebase/Storage'
+end
 end
