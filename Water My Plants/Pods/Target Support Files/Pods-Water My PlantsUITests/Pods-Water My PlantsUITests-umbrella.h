@@ -10,3 +10,7 @@
 #endif
 #endif
 
+
+FOUNDATION_EXPORT double Pods_Water_My_PlantsUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Water_My_PlantsUITestsVersionString[];
+
