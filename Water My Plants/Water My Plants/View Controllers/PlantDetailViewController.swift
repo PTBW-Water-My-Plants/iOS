@@ -11,7 +11,8 @@ class PlantDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationItem.rightBarButtonItem = editButtonItem
         // Do any additional setup after loading the view.
     }
     
