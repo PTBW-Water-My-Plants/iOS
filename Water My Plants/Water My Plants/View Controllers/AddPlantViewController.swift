@@ -9,10 +9,7 @@ import UIKit
 
 class AddPlantViewController: UIViewController {
     
-    // MARK: - Properties and Outlets
-    var wasEdited = false
-    
-    //Referance
+    // MARK: Referance
     var plantController: WaterMyPlantController?
     var plant: PlantRepresentation?
     let localNotifHelper = LocalNotificationHelper()
@@ -25,32 +22,22 @@ class AddPlantViewController: UIViewController {
     @IBOutlet weak var sameraButton: UIButton!
     private var countDownTime: UIDatePicker?
     
+    
     // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupDatePicker()
-        navigationItem.rightBarButtonItem = editButtonItem
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if wasEdited {
-           // Setup Editing Feature
-        }
+       
     }
     
-    
-    
-    
-    //MARK: - Private
-
-    
-    
+    // MARK: - Private
     private func setupDatePicker() {
         countDownTime = UIDatePicker()
-        countDownTime?.datePickerMode = .countDownTimer
+        countDownTime?.datePickerMode = .dateAndTime
         countDownTime?.timeZone = .autoupdatingCurrent
         countDownTime?.addTarget(self, action: #selector(AddPlantViewController.dateChanged(datePicker:)), for: .valueChanged)
         
@@ -59,17 +46,6 @@ class AddPlantViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddPlantViewController.viewTapped(gestureReconizer:)))
         view.addGestureRecognizer(tapGesture)
     }
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-         super.setEditing(editing, animated: animated)
-         
-         if editing { wasEdited = true }
-         
-         nicknameTextField.isUserInteractionEnabled = editing
-         speciesTextField.isUserInteractionEnabled = editing
-         h20FrequencyTextField.isUserInteractionEnabled = editing
-         navigationItem.hidesBackButton = editing
-     }
     
     @objc func dateChanged(datePicker: UIDatePicker) {
           let formatter = DateFormatter()
@@ -84,18 +60,34 @@ class AddPlantViewController: UIViewController {
     
     // MARK: -  Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-//        guard let name = nicknameTextField.text,
-//              !name.isEmpty,
-//              let species = speciesTextField.text,
-//              !description.isEmpty else { return }
-//        let times = countDownTime?.date
-//
-//        localNotifHelper.requestAuthorizationStatus { success in
-//            if success == true {
-//                self.localNotifHelper.scheduleDailyReminderNotification(name: name, times: times!, calendar: Calendar.current)
-//            }
-//        }
+        //Saving data to server
+        guard let nickname = nicknameTextField.text, !nickname.isEmpty,
+            let date = h20FrequencyTextField.text,
+            let species = speciesTextField.text else { return }
+        
+        let formatter = DateFormatter()
+        formatter.timeZone = .current
+        formatter.dateFormat = "MM/dd/yy HH:mm a"
+        
+        let plant = Plant(nickName: nickname, h2oFrequency: 1, species: species)
+        plantController?.sendPlantToServer(plant: plant)
+        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+            navigationController?.dismiss(animated: true, completion: nil)
+            print(plant)
+        } catch {
+            NSLog("Error saving managed object context with error: \(error)")
+        }
+
+        localNotifHelper.requestAuthorizationStatus { success in
+            if success == true {
+                self.localNotifHelper.scheduleDailyReminderNotification(name: nickname, times: Date(), calendar: Calendar.current)
+            }
+        }
+        tabBarController?.selectedIndex = 1
     }
+   
 }
 
 
