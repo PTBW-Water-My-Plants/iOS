@@ -27,6 +27,10 @@ class WaterMyPlantController {
     
     
     // MARK: - CRUD
+    func createPlant(with nickname: String, species: String, h20Frequency: Date, image: String?) {
+        let plant = PlantRepresentation(id: UUID().uuidString, h2oFrequency: h20Frequency, imageUrl: nil, nickName: nickname, species: species)
+        plants.append(plant)
+        saveToPersistence()
     func fetchPlantFromServer(completion: @escaping CompletionHandler = { _ in }) {
         let requestURL = baseURL.appendingPathExtension("json")
         
@@ -53,6 +57,12 @@ class WaterMyPlantController {
         }.resume()
     }
     
+    func updatePlant(with plant: PlantRepresentation, nickname: String, species: String, h2oFrequency: Date) {
+        guard let index = plants.firstIndex(of: plant) else { return }
+        var scratch = plants[index]
+        scratch.nickName = nickname
+        scratch.species = species
+        scratch.h2oFrequency = h2oFrequency
     func sendPlantToServer(plant: Plant, completion: @escaping CompletionHandler = { _ in }) {
         //print(auth.bearer)
         guard let uuid = plant.id else {

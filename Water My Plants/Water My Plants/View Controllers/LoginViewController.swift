@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: false)
         passwordTextField.isSecureTextEntry = true
+        disableLoginButton()
     }
 
     /*
@@ -36,6 +37,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func logInButtonTapped(_ sender: Any) {
         
+        
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty,
               let username = usernameTextField.text, !username.isEmpty else { return }
@@ -48,20 +50,23 @@ class LoginViewController: UIViewController {
             print("Was able to log in to the home view")
             self.performSegue(withIdentifier: "LoginHomeView", sender: nil)
         }
+              
+        emailTextField.text = ""
+        passwordTextField.text = ""
         
-        if emailTextField.text == "" {
-            loginButton.isHidden = true
-        }
-//        emailTextField.text = ""
-//        passwordTextField.text = ""
     }
     
     func disableLoginButton() {
-        let email = emailTextField.text, password = passwordTextField.text, username = usernameTextField.text
-
-        if ((email?.isEmpty) != nil), ((password?.isEmpty) != nil), ((username?.isEmpty) != nil) {
+        if emailTextField.text?.isEmpty == true {
             loginButton.isEnabled = false
+        } else if passwordTextField.text?.isEmpty == true {
+            loginButton.isEnabled = false
+        } else if usernameTextField.text?.isEmpty == true {
+            loginButton.isEnabled = false
+        } else {
+            loginButton.isEnabled = true
         }
+        
     }
     
 }

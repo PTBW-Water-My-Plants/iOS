@@ -226,12 +226,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RW-pf-uIz">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RW-pf-uIz">
                                                 <rect key="frame" x="0.0" y="191.5" width="334" height="48.5"/>
                                                 <color key="backgroundColor" systemColor="linkColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <state key="normal" title="LOG IN">
                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" systemColor="systemGray3Color"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="logInButtonTapped:" destination="VCm-Km-Rw2" eventType="touchUpInside" id="sfc-ds-2P1"/>
@@ -301,7 +304,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="foF-Tg-KEH"/>
+        <segue reference="c0e-92-flu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Profile-ICon" width="673" height="673"/>
@@ -315,6 +318,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -17,6 +17,7 @@ class RegistrationViewController: UIViewController {
     
     var image: UIImage? = nil
     let authServices = AuthServices()
+    var userController: UserController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
