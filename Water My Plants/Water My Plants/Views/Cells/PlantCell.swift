@@ -16,7 +16,7 @@ class PlantCell : UITableViewCell {
             let data = try? Data(contentsOf: urlData!)
 
             plantNameLabel.text = MockData.plantMock.nickName
-            h20Label.text = String(MockData.plantMock.h2oFrequency)
+//            h20Label.text = String(MockData.plantMock.h2oFrequency)
             plantImage.image = UIImage(data: data!)?.circleMask
             
          

@@ -9,7 +9,7 @@ import UIKit
 
 class BaseTableViewController: UITableViewController {
     
-    let plantController = PlantController()
+    let plantController = UserController()
 
     override func viewDidLoad() {
         super.viewDidLoad()

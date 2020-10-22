@@ -12,16 +12,21 @@ extension Plant {
     
     var plantRepresentation: PlantRepresentation? {
         
-        return PlantRepresentation(id: id?.uuidString ?? "",
+        guard let  id = id,
+        let h2oFrequency = h2oFrequency,
+        let nickName = nickName,
+        let species = species else { return nil }
+        
+        return PlantRepresentation(id: id.uuidString ,
                                    h2oFrequency: h2oFrequency,
                                    imageUrl: imageUrl,
-                                   nickName: nickName ?? "",
-                                   species: species ?? "")
+                                   nickName: nickName ,
+                                   species: species )
     }
     
     @discardableResult convenience init(id: UUID = UUID(),
                                         nickName: String,
-                                        h2oFrequency: Int16,
+                                        h2oFrequency: Date,
                                         imageUrl: String? = nil,
                                         species: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext
