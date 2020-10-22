@@ -12,11 +12,11 @@ class AuthServices {
     func signUp(withUsername username: String, email: String, password: String, image: UIImage?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (AuthDataResult, error) in
             if error != nil {
-                print(error)
+                print(error!)
                 return
             }
             if let authData = AuthDataResult {
-                print(authData.user.email)
+                print(authData.user.email!)
                 var dict: Dictionary<String, Any> = [
                     "uid": authData.user.uid,
                     "username": username,
