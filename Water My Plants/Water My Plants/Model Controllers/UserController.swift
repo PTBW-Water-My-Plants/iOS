@@ -17,6 +17,7 @@ enum NetworkError: Error {
     case otherError
     case failedSignUp
     case failedSignIn
+    case tryAgain
 }
 
 enum HTTPMethod: String {
@@ -28,9 +29,10 @@ enum HTTPMethod: String {
 class UserController {
     
     private let fireBaseURL = URL(string: "https://water-my-plant-1b44a.firebaseio.com/")!
-    private let baseURL = URL(string: "https://watertheplants.herokuapp.com/api/")!
-    private lazy var signUpURL = baseURL.appendingPathComponent("auth/register")
-    private lazy var signInURL = baseURL.appendingPathComponent("auth/login")
+    private let baseURL = URL(string: "https://watertheplants.herokuapp.com/api")!
+    private lazy var signUpURL = baseURL.appendingPathComponent("/auth/register")
+    private lazy var signInURL = baseURL.appendingPathComponent("/auth/login")
+    private lazy var usersDetialURl = baseURL.appendingPathComponent("/users")
     
     var bearer: Bearer?
     
@@ -120,6 +122,50 @@ class UserController {
             completion(.failure(.failedSignIn))
         }
         
+    }
+    
+    
+    func fetchUsersDetails(for userName: String, completion:@escaping (Result<User, NetworkError>) ->Void) {
+        guard let bearer = bearer else {
+            completion(.failure(.noBearerToken))
+            return
+        }
+        
+        var request = URLRequest(url: usersDetialURl.appendingPathComponent(userName))
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        
+        let fetchUsersDetailsTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error receiving animal detial data: \(error)")
+                completion(.failure(.tryAgain))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse,
+                response.statusCode == 401 {
+                completion(.failure(.noBearerToken))
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received from fetchUsersDetails from animal: \(userName)")
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.dateDecodingStrategy = .secondsSince1970
+                let userDetail = try jsonDecoder.decode(User.self, from: data)
+                completion(.success(userDetail))
+            } catch {
+                print("Error decoding user detail data (user name = \(userName)): \(error)")
+                completion(.failure(.tryAgain))
+            }
+            
+        }
+        fetchUsersDetailsTask.resume()
     }
 }
 
