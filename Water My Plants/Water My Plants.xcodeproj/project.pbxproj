@@ -24,7 +24,6 @@
 		22FF14B925412666002BCECF /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF14B825412666002BCECF /* Bearer.swift */; };
 		22FF14BD2541279A002BCECF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FF14BC2541279A002BCECF /* Profile.storyboard */; };
 		22FF14C025412821002BCECF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF14BF25412821002BCECF /* ProfileViewController.swift */; };
-		41F12D334FCBD0C1C30BA717 /* Pods_Water_My_Plants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E96D8417CF6484678F4703 /* Pods_Water_My_Plants.framework */; };
 		70B981C8058D4F8CEB82CA07 /* Pods_Water_My_PlantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50ECF720BF9B91617745ECF /* Pods_Water_My_PlantsUITests.framework */; };
 		C23A6474254116A800183FCE /* WaterMyPlantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A6473254116A800183FCE /* WaterMyPlantsTests.swift */; };
 		C23A6521254136E900183FCE /* Water_My_PlantsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A6520254136E900183FCE /* Water_My_PlantsUITests.swift */; };
@@ -37,6 +36,7 @@
 		CA3E4AC1253EBC67008FB785 /* WaterMyPlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AC0253EBC66008FB785 /* WaterMyPlantController.swift */; };
 		CA3E4AC4253EBD39008FB785 /* PlantPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AC3253EBD39008FB785 /* PlantPersistenceController.swift */; };
 		CA3E4AC7253F7F92008FB785 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AC6253F7F91008FB785 /* PlantDetailViewController.swift */; };
+		CA490CEB25426E4300E733E9 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
 		CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */; };
@@ -79,7 +79,6 @@
 		22FF14B825412666002BCECF /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		22FF14BC2541279A002BCECF /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		22FF14BF25412821002BCECF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		B75CD8BDC62130A97F5B1304 /* Pods-Water My Plants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.debug.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.debug.xcconfig"; sourceTree = "<group>"; };
 		24567DEC17558A67C80EB991 /* Pods-Water My Plants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.release.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.release.xcconfig"; sourceTree = "<group>"; };
 		2E821443AF3579E311ED7C86 /* Pods-Water My PlantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My PlantsTests.debug.xcconfig"; path = "Target Support Files/Pods-Water My PlantsTests/Pods-Water My PlantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3DD19596BF9A750985723602 /* Pods_Water_My_Plants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Water_My_Plants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +101,7 @@
 		CA3E4AC0253EBC66008FB785 /* WaterMyPlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMyPlantController.swift; sourceTree = "<group>"; };
 		CA3E4AC3253EBD39008FB785 /* PlantPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPersistenceController.swift; sourceTree = "<group>"; };
 		CA3E4AC6253F7F91008FB785 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
+		CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -288,6 +288,25 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		CA490CE825426DE400E733E9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CA490CE925426E1800E733E9 /* Stroyboard PlantDetail */,
+				22FF14BB25412765002BCECF /* Storyboard Profile */,
+				220965AE2537E273007B3DF8 /* Storyboard Home */,
+				220965AD2537E252007B3DF8 /* Storyboard Login */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CA490CE925426E1800E733E9 /* Stroyboard PlantDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */,
+			);
+			path = "Stroyboard PlantDetail";
+			sourceTree = "<group>";
+		};
 		CA8E3D382536B2E900FE0E24 = {
 			isa = PBXGroup;
 			children = (
@@ -320,9 +339,7 @@
 				2271CC8725394A9700F5B118 /* CoreDataModels */,
 				224C2D8D253B5DBF005FD3C3 /* Model Controllers */,
 				22B6B2692538831700E16E81 /* View Controllers */,
-				220965AD2537E252007B3DF8 /* Storyboard Login */,
-				220965AE2537E273007B3DF8 /* Storyboard Home */,
-				22FF14BB25412765002BCECF /* Storyboard Profile */,
+				CA490CE825426DE400E733E9 /* Storyboards */,
 				220965B12537E311007B3DF8 /* Resources */,
 				CA8E3D522536B2FE00FE0E24 /* Info.plist */,
 				229FD169253BEB9600E92994 /* GoogleService-Info.plist */,
@@ -462,6 +479,7 @@
 				CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */,
 				22FF14BD2541279A002BCECF /* Profile.storyboard in Resources */,
 				229FD16A253BEB9600E92994 /* GoogleService-Info.plist in Resources */,
+				CA490CEB25426E4300E733E9 /* PlantDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
