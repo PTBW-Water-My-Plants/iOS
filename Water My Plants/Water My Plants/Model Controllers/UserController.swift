@@ -14,6 +14,7 @@ enum NetworkError: Error {
     case noData
     case noDecode
     case noEncode
+    case otherError
     case failedSignUp
     case failedSignIn
 }

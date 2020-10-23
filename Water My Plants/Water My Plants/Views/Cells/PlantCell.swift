@@ -121,7 +121,7 @@ class PlantCell : UITableViewCell {
         let data = try? Data(contentsOf: urlData!)
         
         plantNameLabel.text = plant?.nickName
-        h20Label.text = "Water me on: \(String(plant!.h2oFrequency))"
+        h20Label.text = "Water me on: \(String(describing: plant?.h2oFrequency))"
         //MARK: MOCK IMAGE
         plantImage.image = UIImage(data: data!)?.circleMask
     }

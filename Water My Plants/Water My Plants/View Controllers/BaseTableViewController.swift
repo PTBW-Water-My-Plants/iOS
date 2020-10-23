@@ -11,7 +11,7 @@ import UserNotifications
 
 class BaseTableViewController: UITableViewController {
     
-    let plantController = PlantController()
+    let plantController = UserController()
     let waterMyPlantController = WaterMyPlantController()
     var currentUser: User?
     var isCellSegue: Bool = false

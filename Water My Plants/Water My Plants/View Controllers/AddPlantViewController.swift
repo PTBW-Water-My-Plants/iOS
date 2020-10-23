@@ -65,11 +65,16 @@ class AddPlantViewController: UIViewController {
             let date = h20FrequencyTextField.text,
             let species = speciesTextField.text else { return }
         
-        let formatter = DateFormatter()
-        formatter.timeZone = .current
-        formatter.dateFormat = "MM/dd/yy HH:mm a"
+        let formatterToString = DateFormatter()
+        formatterToString.timeZone = .current
+        formatterToString.dateFormat = "MM/dd/yy HH:mm a"
         
-        let plant = Plant(nickName: nickname, h2oFrequency: 1, species: species)
+        
+        let formatterToDateFromString = DateFormatter()
+        formatterToDateFromString.timeZone = .current
+        formatterToDateFromString.date(from: date)
+        
+        let plant = Plant(nickName: nickname, h2oFrequency: formatterToDateFromString.date(from: date)!, species: species)
         plantController?.sendPlantToServer(plant: plant)
         
         do {
@@ -85,7 +90,7 @@ class AddPlantViewController: UIViewController {
                 self.localNotifHelper.scheduleDailyReminderNotification(name: nickname, times: Date(), calendar: Calendar.current)
             }
         }
-        tabBarController?.selectedIndex = 1
+//        tabBarController?.selectedIndex = 1
     }
    
 }
