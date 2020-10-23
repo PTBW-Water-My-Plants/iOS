@@ -10,15 +10,16 @@ import CoreData
 
 
 
+
 class WaterMyPlantController {
     
     var plants: [PlantRepresentation] = []
     var plant: PlantRepresentation?
-    let plantAuthController = PlantController()
+    let userController = UserController()
     public var completion: ((String, String, Date) -> Void)?
     let baseURL = URL(string: "https://water-my-plant-1b44a.firebaseio.com/")!
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
-   
+    
     
     init() {
         fetchPlantFromServer()
@@ -27,10 +28,13 @@ class WaterMyPlantController {
     
     
     // MARK: - CRUD
-    func createPlant(with nickname: String, species: String, h20Frequency: Date, image: String?) {
+    func createPlant(with nickname: String, species: String, h20Frequency: Int16, image: String?) {
         let plant = PlantRepresentation(id: UUID().uuidString, h2oFrequency: h20Frequency, imageUrl: nil, nickName: nickname, species: species)
         plants.append(plant)
         saveToPersistence()
+        
+    }
+    
     func fetchPlantFromServer(completion: @escaping CompletionHandler = { _ in }) {
         let requestURL = baseURL.appendingPathExtension("json")
         
@@ -57,12 +61,15 @@ class WaterMyPlantController {
         }.resume()
     }
     
-    func updatePlant(with plant: PlantRepresentation, nickname: String, species: String, h2oFrequency: Date) {
+    
+    func updatePlant(with plant: PlantRepresentation, nickname: String, species: String, h2oFrequency: Int16) {
         guard let index = plants.firstIndex(of: plant) else { return }
         var scratch = plants[index]
         scratch.nickName = nickname
         scratch.species = species
         scratch.h2oFrequency = h2oFrequency
+    }
+    
     func sendPlantToServer(plant: Plant, completion: @escaping CompletionHandler = { _ in }) {
         //print(auth.bearer)
         guard let uuid = plant.id else {
@@ -96,6 +103,7 @@ class WaterMyPlantController {
     }
     
     
+    
     private func updatePlant (with representations: [PlantRepresentation]) throws {
         let identifiersToFetch = representations.compactMap { UUID(uuidString: $0.id) }
         let representationByID = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
@@ -106,22 +114,22 @@ class WaterMyPlantController {
         
         let context = CoreDataStack.shared.mainContext
         
-            let existingTodos = try context.fetch(fetchRequest)
-            //Existing Plant
-            for plant in existingTodos {
-                guard let id = plant.id,
-                      let representation = representationByID[id] else { continue }
-                self.update(plant: plant, with: representation)
-                plantCreate.removeValue(forKey: id)
-            }
-            
-            //New Plant
-            for representation in plantCreate.values {
-                Plant(plantRepresentation: representation, context: context)
-            }
-            
-            try context.save()
-
+        let existingTodos = try context.fetch(fetchRequest)
+        //Existing Plant
+        for plant in existingTodos {
+            guard let id = plant.id,
+                  let representation = representationByID[id] else { continue }
+            self.update(plant: plant, with: representation)
+            plantCreate.removeValue(forKey: id)
+        }
+        
+        //New Plant
+        for representation in plantCreate.values {
+            Plant(plantRepresentation: representation, context: context)
+        }
+        
+        try context.save()
+        
     }
     
     
@@ -130,7 +138,6 @@ class WaterMyPlantController {
         plant.species = representation.species
         plant.h2oFrequency = representation.h2oFrequency
     }
-    
     func deletePlantFromServer(_ plant: Plant, completion: @escaping CompletionHandler = { _ in }) {
         guard let uuid = plant.id else {
             completion(.failure(.noId))
@@ -150,4 +157,7 @@ class WaterMyPlantController {
             completion(.success(true))
         }.resume()
     }
+    
 }
+
+
