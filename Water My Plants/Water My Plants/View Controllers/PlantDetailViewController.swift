@@ -8,6 +8,25 @@
 import UIKit
 
 class PlantDetailViewController: UIViewController {
+    
+    var plantController: WaterMyPlantController?
+    var plant: PlantRepresentation? {
+        didSet {
+            
+        }
+    }
+    
+    @IBOutlet weak var nicknameTextField: UITextField!
+    @IBOutlet weak var speciesTextField: UITextField!
+    @IBOutlet weak var h20FrequencyTextField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var sameraButton: UIButton!
+    private var countDownTime: UIDatePicker?
+    
+    
+
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
