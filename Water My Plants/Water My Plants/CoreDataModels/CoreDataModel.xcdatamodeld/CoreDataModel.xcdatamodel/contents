@@ -8,6 +8,6 @@
         <attribute name="species" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Plant" positionX="-54" positionY="-9" width="128" height="28"/>
+        <element name="Plant" positionX="-54" positionY="-9" width="128" height="118"/>
     </elements>
 </model>
