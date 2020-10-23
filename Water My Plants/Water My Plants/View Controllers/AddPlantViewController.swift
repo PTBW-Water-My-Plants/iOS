@@ -74,7 +74,7 @@ class AddPlantViewController: UIViewController {
         formatterToDateFromString.timeZone = .current
         formatterToDateFromString.date(from: date)
         
-        let plant = Plant(nickName: nickname, h2oFrequency: formatterToDateFromString.date(from: date)!, species: species)
+        let plant = Plant(nickName: nickname, h2oFrequency: 1, species: species)
         plantController?.sendPlantToServer(plant: plant)
         
         do {

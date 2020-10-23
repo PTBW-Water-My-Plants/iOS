@@ -28,7 +28,7 @@ class WaterMyPlantController {
     
     
     // MARK: - CRUD
-    func createPlant(with nickname: String, species: String, h20Frequency: Date, image: String?) {
+    func createPlant(with nickname: String, species: String, h20Frequency: Int16, image: String?) {
         let plant = PlantRepresentation(id: UUID().uuidString, h2oFrequency: h20Frequency, imageUrl: nil, nickName: nickname, species: species)
         plants.append(plant)
         saveToPersistence()
@@ -62,7 +62,7 @@ class WaterMyPlantController {
     }
     
     
-    func updatePlant(with plant: PlantRepresentation, nickname: String, species: String, h2oFrequency: Date) {
+    func updatePlant(with plant: PlantRepresentation, nickname: String, species: String, h2oFrequency: Int16) {
         guard let index = plants.firstIndex(of: plant) else { return }
         var scratch = plants[index]
         scratch.nickName = nickname
