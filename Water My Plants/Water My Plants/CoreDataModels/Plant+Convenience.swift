@@ -12,11 +12,16 @@ extension Plant {
     
     var plantRepresentation: PlantRepresentation? {
         
-        return PlantRepresentation(id: id?.uuidString ?? "",
+        guard let  id = id,
+//        let h2oFrequency = h2oFrequency, // MARK: Must be optional warning???
+        let nickName = nickName,
+        let species = species else { return nil }
+        
+        return PlantRepresentation(id: id.uuidString ,
                                    h2oFrequency: h2oFrequency,
                                    imageUrl: imageUrl,
-                                   nickName: nickName ?? "",
-                                   species: species ?? "")
+                                   nickName: nickName ,
+                                   species: species )
     }
     
     @discardableResult convenience init(id: UUID = UUID(),
