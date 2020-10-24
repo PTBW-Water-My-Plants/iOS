@@ -9,9 +9,10 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    var plant: Plant?
+    var user: User?
     var wasEdited = false
-    var watermyPlantController: WaterMyPlantController?
+    var userController: UserController?
+    var userName: String?
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -44,6 +45,28 @@ class ProfileViewController: UIViewController {
 //                NSLog("Error saving managed object context")
 //            }
 //        }
+    }
+    
+    func getDetails() {
+        guard let userController = userController,
+              let userName = userName else { return }
+        
+        userController.fetchUsersDetails(for: userName) { (result) in
+            switch result {
+            case .success(let user):
+                DispatchQueue.main.async {
+                    self.updateViews(with: user)
+                }
+            case .failure(let error):
+                print("Error fetching user detials \(error)")
+            }
+        }
+    }
+    
+    func updateViews(with users: User) {
+        usernameTextField.text = users.username
+        phoneNumberTextField.text = users.email
+        passwordTextField.text = users.password
     }
     
     
