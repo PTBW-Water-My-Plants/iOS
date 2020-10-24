@@ -126,7 +126,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="9kM-Za-4PD" kind="showDetail" id="W79-tM-0W9"/>
+                                    <segue destination="9kM-Za-4PD" kind="show" identifier="CellSegue" id="FY7-pe-ubM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,7 +145,9 @@
         <!--PlantDetail-->
         <scene sceneID="kEY-FI-FKY">
             <objects>
-                <viewControllerPlaceholder storyboardName="PlantDetail" id="9kM-Za-4PD" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="PlantDetail" id="9kM-Za-4PD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mB7-Cb-iD7"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUI-Tj-ruY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="715" y="1671"/>

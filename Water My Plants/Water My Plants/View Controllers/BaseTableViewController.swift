@@ -11,10 +11,12 @@ import UserNotifications
 
 class BaseTableViewController: UITableViewController {
     
-    let plantController = UserController()
-    let waterMyPlantController = WaterMyPlantController()
+    
+    let userController = UserController()
+    let plantController = WaterMyPlantController()
     var currentUser: User?
     var isCellSegue: Bool = false
+    
     
     
     
@@ -86,12 +88,16 @@ class BaseTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             let plant = fetchResultController.object(at: indexPath)
             //Deletion plant from server and coredata
-            waterMyPlantController.deletePlantFromServer(plant) { result in
+            plantController.deletePlantFromServer(plant) { result in
                 guard let _ = try? result.get() else {
                     return
                 }
@@ -110,14 +116,14 @@ class BaseTableViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //       if segue.identifier == "CellSegue" {
-        //            if let detailVC = segue.destination as? PlantDetailViewController,
-        //                let indexPath = tableView.indexPathForSelectedRow {
-        //                detailVC.plant = fetchResultController.object(at: indexPath)
-        //                detailVC.todoController = self.todoController
-        //                detailVC.title = "Details"
-        //            }
-        //        }
+               if segue.identifier == "CellSegue" {
+                    if let detailVC = segue.destination as? PlantDetailViewController,
+                        let indexPath = tableView.indexPathForSelectedRow {
+                        detailVC.plant = fetchResultController.object(at: indexPath)
+                        detailVC.plantController = self.plantController
+                        detailVC.title = "Details"
+                    }
+                }
     }
     
 }
@@ -177,6 +183,6 @@ extension BaseTableViewController: NSFetchedResultsControllerDelegate {
 
 extension BaseTableViewController: PlantCellDelegate {
     func didUpdatePlant(plant: Plant) {
-        waterMyPlantController.sendPlantToServer(plant: plant)
+        plantController.sendPlantToServer(plant: plant)
     }
 }
