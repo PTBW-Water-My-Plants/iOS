@@ -187,8 +187,6 @@
 				2271CC902539549B00F5B118 /* CoreDataStack.swift */,
 				224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */,
 				224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */,
-				229FD165253BC9A800E92994 /* User.swift */,
-				22FF14B825412666002BCECF /* Bearer.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -310,6 +308,15 @@
 			path = "Stroyboard PlantDetail";
 			sourceTree = "<group>";
 		};
+		CA490D102544992700E733E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				229FD165253BC9A800E92994 /* User.swift */,
+				22FF14B825412666002BCECF /* Bearer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CA8E3D382536B2E900FE0E24 = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +343,7 @@
 		CA8E3D432536B2E900FE0E24 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
+				CA490D102544992700E733E9 /* Models */,
 				CA3E4AB0253E8429008FB785 /* Helpers */,
 				CA3E4AAA253E83DD008FB785 /* Views */,
 				2281190E253BF1AF00539C68 /* Network */,

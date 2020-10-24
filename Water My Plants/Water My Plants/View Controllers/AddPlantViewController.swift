@@ -10,7 +10,7 @@ import UIKit
 class AddPlantViewController: UIViewController {
     
     // MARK: Referance
-    var plantController: WaterMyPlantController?
+    var plantController = WaterMyPlantController()
     var plant: PlantRepresentation?
     let localNotifHelper = LocalNotificationHelper()
     
@@ -54,7 +54,7 @@ class AddPlantViewController: UIViewController {
     
     @objc func dateChanged(datePicker: UIDatePicker) {
           let formatter = DateFormatter()
-          formatter.dateFormat = "MM/dd/yy HH:mm a"
+          formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
           
           h20FrequencyTextField.text = formatter.string(from: datePicker.date)
       }
@@ -86,24 +86,29 @@ class AddPlantViewController: UIViewController {
         
         let formatterToString = DateFormatter()
         formatterToString.timeZone = .current
-        formatterToString.dateFormat = "MM/dd/yy HH:mm a"
+        formatterToString.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         
         let formatterToDateFromString = DateFormatter()
         formatterToDateFromString.timeZone = .current
-        formatterToDateFromString.date(from: date)
         
-        
-        guard let timeInterval = formatterToDateFromString.date(from: date)?.timeIntervalSince1970 else { return }
+ 
+       
+       //   Msg_Date_ =  dateFormatterPrint.string(from: datee ?? Date())
 
+        //  print(Msg_Date_)
+        
+        
+        
+        let timeDate = formatterToDateFromString.date(from: date)
+        
+//        guard let timeInterval = formatterToDateFromString.date(from: date)?.timeIntervalSince1970 else { return }
+       
         // convert to Integer
-        let myInt = Int(timeInterval)
-
-        
-        //Now use image to create into NSData format
-        
+        let myInt = Int(timeDate?.intVal ?? 1)
         let plant = Plant(nickName: nickname, h2oFrequency: Int16(myInt), imageUrl: convertImageToBase64String(), species: species)
-        plantController?.sendPlantToServer(plant: plant)
+        
+        plantController.sendPlantToServer(plant: plant)
         
         do {
             try CoreDataStack.shared.mainContext.save()
@@ -118,7 +123,7 @@ class AddPlantViewController: UIViewController {
                 self.localNotifHelper.scheduleDailyReminderNotification(name: nickname, times: Date(), calendar: Calendar.current)
             }
         }
-//        tabBarController?.selectedIndex = 1
+        tabBarController?.selectedIndex = 1
     }
     
    
@@ -138,4 +143,36 @@ extension AddPlantViewController: UIImagePickerControllerDelegate & UINavigation
     
 }
 
+extension Date{
+    var intVal: Int?{
+        if let d = Date.coordinate{
+             let inteval = Date().timeIntervalSince(d)
+             return Int(inteval)
+        }
+        return nil
+    }
+
+    // today's time is close to `2020-04-17 05:06:06`
+
+    static let coordinate: Date? = {
+        let dateFormatCoordinate = DateFormatter()
+        dateFormatCoordinate.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if let d = dateFormatCoordinate.date(from: "2020-04-17 05:06:06") {
+            return d
+        }
+        return nil
+    }()
+}
+
+
+extension Int{
+    var dateVal: Date?{
+        // convert Int to Double
+        let interval = Double(self)
+        if let d = Date.coordinate{
+            return  Date(timeInterval: interval, since: d)
+        }
+        return nil
+    }
+}
 

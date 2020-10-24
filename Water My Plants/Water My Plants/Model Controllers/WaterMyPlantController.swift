@@ -17,7 +17,9 @@ class WaterMyPlantController {
     var plant: PlantRepresentation?
     let userController = UserController()
     public var completion: ((String, String, Date) -> Void)?
-    let baseURL = URL(string: "https://water-my-plant-1b44a.firebaseio.com/")!
+    let baseURL = URL(string: "https://water-my-plants-73fe4.firebaseio.com/")!
+    
+    //let baseURL = URL(string: "https://water-my-plant-1b44a.firebaseio.com/")!
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
     
@@ -40,22 +42,23 @@ class WaterMyPlantController {
         
         URLSession.shared.dataTask(with: requestURL) { data, _, error in
             if let error = error {
-                NSLog("Error fetching todos with: \(error)")
+                NSLog("Error fetching plants with: \(error)")
                 completion(.failure(.otherError))
                 return
             }
             
             guard let data = data else {
-                NSLog("No data returned from Firebase (Fetching todos)")
+                NSLog("No data returned from Firebase (Fetching plants)")
                 completion(.failure(.noData))
                 return
             }
             
             do {
                 let plantRepresentation = Array(try JSONDecoder().decode([String: PlantRepresentation].self, from: data).values)
+                print(plantRepresentation)
                 try self.updatePlant(with: plantRepresentation)
             } catch {
-                NSLog("Error decoding todo from Firebase: \(error)")
+                NSLog("Error decoding plants from Firebase: \(error)")
                 completion(.failure(.noDecode))
             }
         }.resume()
@@ -88,13 +91,13 @@ class WaterMyPlantController {
             }
             request.httpBody = try JSONEncoder().encode(represenation)
         } catch {
-            NSLog("Error encoding todo: \(plant), \(error)")
+            NSLog("Error encoding plant: \(plant), \(error)")
             completion(.failure(.noEncode))
             return
         }
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
-                NSLog("Error sending todo to server \(plant), \(error)")
+                NSLog("Error sending plant to server \(plant), \(error)")
                 completion(.failure(.otherError))
                 return
             }
@@ -114,9 +117,9 @@ class WaterMyPlantController {
         
         let context = CoreDataStack.shared.mainContext
         
-        let existingTodos = try context.fetch(fetchRequest)
+        let existingPlants = try context.fetch(fetchRequest)
         //Existing Plant
-        for plant in existingTodos {
+        for plant in existingPlants {
             guard let id = plant.id,
                   let representation = representationByID[id] else { continue }
             self.update(plant: plant, with: representation)
@@ -150,7 +153,7 @@ class WaterMyPlantController {
         
         URLSession.shared.dataTask(with: request) { (_, _, error) in
             if let error = error {
-                NSLog("Error deleting todo from server \(plant), \(error)")
+                NSLog("Error deleting plant from server \(plant), \(error)")
                 completion(.failure(.otherError))
                 return
             }
