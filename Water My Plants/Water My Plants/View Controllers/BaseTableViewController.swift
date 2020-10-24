@@ -22,7 +22,7 @@ class BaseTableViewController: UITableViewController {
     
     lazy var fetchResultController: NSFetchedResultsController<Plant> = {
         let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true),
+        fetchRequest.sortDescriptors = [
                                         NSSortDescriptor(key: "nickName", ascending: true)
         ]
         let context = CoreDataStack.shared.mainContext
@@ -115,6 +115,7 @@ class BaseTableViewController: UITableViewController {
     
     
     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                if segue.identifier == "CellSegue" {
                     if let detailVC = segue.destination as? PlantDetailViewController,
