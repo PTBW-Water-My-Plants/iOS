@@ -116,14 +116,25 @@ class PlantCell : UITableViewCell {
         
     }
     
+    func convertBase64StringToImage (imageBase64String:String) -> UIImage {
+        let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
+        let image = UIImage(data: imageData!)
+        return image!
+    }
+    
     private func updateViews() {
-        let urlData = URL(string: MockData.plantMock.imageUrl!)
-        let data = try? Data(contentsOf: urlData!)
+//        let urlData = URL(string: MockData.plantMock.imageUrl!)
+//        let data = try? Data(contentsOf: urlData!)
         
         plantNameLabel.text = plant?.nickName
         h20Label.text = "Water me on: \(String(describing: plant?.h2oFrequency))"
         //MARK: MOCK IMAGE
-        plantImage.image = UIImage(data: data!)?.circleMask
+        
+        print(plant?.imageUrl)
+        
+//        guard let image = plant?.imageUrl else { return }
+//
+//        plantImage.image = convertBase64StringToImage(imageBase64String: image)
     }
     
 }

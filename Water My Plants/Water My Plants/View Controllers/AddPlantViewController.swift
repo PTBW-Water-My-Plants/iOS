@@ -20,13 +20,18 @@ class AddPlantViewController: UIViewController {
     @IBOutlet weak var h20FrequencyTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sameraButton: UIButton!
+    
     private var countDownTime: UIDatePicker?
+    var imagePicker = UIImagePickerController()
+    
+    
     
     
     // MARK: - View Loading
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDatePicker()
+        imagePicker.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,6 +64,20 @@ class AddPlantViewController: UIViewController {
        }
     
     // MARK: -  Actions
+    
+    @IBAction func cameraButtonTapped(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func convertImageToBase64String () -> String {
+        
+        guard let image = imageView.image else { return "" }
+        return image.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+        
+     }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         //Saving data to server
         guard let nickname = nicknameTextField.text, !nickname.isEmpty,
@@ -74,7 +93,16 @@ class AddPlantViewController: UIViewController {
         formatterToDateFromString.timeZone = .current
         formatterToDateFromString.date(from: date)
         
-        let plant = Plant(nickName: nickname, h2oFrequency: 1, species: species)
+        
+        guard let timeInterval = formatterToDateFromString.date(from: date)?.timeIntervalSince1970 else { return }
+
+        // convert to Integer
+        let myInt = Int(timeInterval)
+
+        
+        //Now use image to create into NSData format
+        
+        let plant = Plant(nickName: nickname, h2oFrequency: Int16(myInt), imageUrl: convertImageToBase64String(), species: species)
         plantController?.sendPlantToServer(plant: plant)
         
         do {
@@ -96,5 +124,18 @@ class AddPlantViewController: UIViewController {
    
 }
 
+
+extension AddPlantViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+}
 
 

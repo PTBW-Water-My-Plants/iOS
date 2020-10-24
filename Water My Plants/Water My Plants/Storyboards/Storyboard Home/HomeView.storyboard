@@ -61,11 +61,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ayg-B9-qjb">
-                                <rect key="frame" x="192" y="389" width="31" height="23"/>
+                                <rect key="frame" x="192" y="389" width="31" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <imageReference key="image" image="camera" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="cameraButtonTapped:" destination="hic-UY-CLf" eventType="touchUpInside" id="kEr-wZ-nke"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgx-Md-dCe">
                                 <rect key="frame" x="190" y="755" width="34" height="30"/>
@@ -84,13 +87,12 @@
                         <outlet property="h20FrequencyTextField" destination="svW-Fi-4QL" id="o7V-hD-XjL"/>
                         <outlet property="imageView" destination="Ak4-JZ-3FW" id="LQC-2n-A7I"/>
                         <outlet property="nicknameTextField" destination="1bp-rZ-SK5" id="4Y3-n0-OKi"/>
-                        <outlet property="sameraButton" destination="Ayg-B9-qjb" id="zBE-70-39k"/>
                         <outlet property="speciesTextField" destination="Cr2-DH-GqX" id="9IB-1E-xt6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejX-RP-tMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2346" y="1683"/>
+            <point key="canvasLocation" x="2344.9275362318845" y="1682.8125"/>
         </scene>
         <!--Add-->
         <scene sceneID="71E-au-6Ql">
@@ -125,9 +127,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="9kM-Za-4PD" kind="showDetail" id="W79-tM-0W9"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
