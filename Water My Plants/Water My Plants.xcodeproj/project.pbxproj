@@ -10,6 +10,7 @@
 		1F07C32430383DD75030DCD6 /* Pods_Water_My_Plants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD19596BF9A750985723602 /* Pods_Water_My_Plants.framework */; };
 		220965AB2537D89E007B3DF8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 220965AA2537D89E007B3DF8 /* .swiftlint.yml */; };
 		220965BA2537F12F007B3DF8 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220965B92537F12F007B3DF8 /* HomeView.storyboard */; };
+		222DAC7825450F03009F6126 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222DAC7725450F03009F6126 /* Notification.swift */; };
 		224C2D8F253B5DEC005FD3C3 /* PlantRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */; };
 		224C2D92253B5E11005FD3C3 /* Plant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */; };
 		2271CC8925394AC500F5B118 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2271CC8825394AC500F5B118 /* UserController.swift */; };
@@ -18,6 +19,7 @@
 		22811910253BF1DA00539C68 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281190F253BF1DA00539C68 /* AuthServices.swift */; };
 		229FD166253BC9A800E92994 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FD165253BC9A800E92994 /* User.swift */; };
 		229FD16A253BEB9600E92994 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229FD169253BEB9600E92994 /* GoogleService-Info.plist */; };
+		22AE74532544AE9200F93F5D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE74522544AE9200F93F5D /* UIViewController+Alert.swift */; };
 		22B6B26B2538833700E16E81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B6B26A2538833700E16E81 /* RegistrationViewController.swift */; };
 		22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B71105253D3C9600C68699 /* LoginViewController.swift */; };
 		22BB1030253E6F5000A7CCDA /* OpeingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */; };
@@ -65,6 +67,7 @@
 /* Begin PBXFileReference section */
 		220965AA2537D89E007B3DF8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		220965B92537F12F007B3DF8 /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
+		222DAC7725450F03009F6126 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepresentation.swift; sourceTree = "<group>"; };
 		224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+Convenience.swift"; sourceTree = "<group>"; };
 		2271CC8825394AC500F5B118 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		2281190F253BF1DA00539C68 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		229FD165253BC9A800E92994 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		229FD169253BEB9600E92994 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22AE74522544AE9200F93F5D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		22B6B26A2538833700E16E81 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		22B71105253D3C9600C68699 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeingViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 			children = (
 				CA3E4AB1253E844E008FB785 /* LocalNotificationHelper.swift */,
 				CA3E4AB9253EA2AA008FB785 /* MockData.swift */,
+				22AE74522544AE9200F93F5D /* UIViewController+Alert.swift */,
+				222DAC7725450F03009F6126 /* Notification.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -659,6 +665,8 @@
 				2271CC912539549B00F5B118 /* CoreDataStack.swift in Sources */,
 				CA3E4AB2253E844F008FB785 /* LocalNotificationHelper.swift in Sources */,
 				CA3E4AC1253EBC67008FB785 /* WaterMyPlantController.swift in Sources */,
+				22AE74532544AE9200F93F5D /* UIViewController+Alert.swift in Sources */,
+				222DAC7825450F03009F6126 /* Notification.swift in Sources */,
 				22FF14C025412821002BCECF /* ProfileViewController.swift in Sources */,
 				229FD166253BC9A800E92994 /* User.swift in Sources */,
 				2271CC8D25394E6C00F5B118 /* CoreDataModel.xcdatamodeld in Sources */,

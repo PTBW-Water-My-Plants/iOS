@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 
 class ProfileViewController: UIViewController {
+    
+    var handle: AuthStateDidChangeListenerHandle?
 
     var user: User?
     var wasEdited = false
     var userController: UserController?
-    var userName: String?
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -21,8 +24,22 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.user = AuthServices.shared.currentUser
         navigationItem.rightBarButtonItem = editButtonItem
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            if let user = user {
+                self.usernameTextField.text = user.email
+                
+            }
+        })
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handle!)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -48,27 +65,33 @@ class ProfileViewController: UIViewController {
     }
     
     func getDetails() {
-        guard let userController = userController,
-              let userName = userName else { return }
+//        guard let userController = userController,
+//              let userName = userName else { return }
         
-        userController.fetchUsersDetails(for: userName) { (result) in
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async {
-                    self.updateViews(with: user)
-                }
-            case .failure(let error):
-                print("Error fetching user detials \(error)")
-            }
-        }
+//        userController.fetchUsersDetails(for: userName) { (result) in
+//            switch result {
+//            case .success(let user):
+//                DispatchQueue.main.async {
+//                    self.updateViews(with: user)
+//                }
+//            case .failure(let error):
+//                print("Error fetching user detials \(error)")
+//            }
+//        }
     }
     
     func updateViews(with users: User) {
-        usernameTextField.text = users.username
         phoneNumberTextField.text = users.email
         passwordTextField.text = users.password
     }
     
+    @IBAction func signOut(_ sender: Any) { 
+        AuthServices.shared.signOut { (success) in
+            if success {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
     
     @IBAction func editButtonIsTapped(_ sender: Any) {
     }

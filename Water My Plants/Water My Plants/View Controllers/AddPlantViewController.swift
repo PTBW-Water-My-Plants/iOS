@@ -19,7 +19,7 @@ class AddPlantViewController: UIViewController {
     @IBOutlet weak var speciesTextField: UITextField!
     @IBOutlet weak var h20FrequencyTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var sameraButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
     private var countDownTime: UIDatePicker?
     
     
@@ -27,6 +27,8 @@ class AddPlantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDatePicker()
+        
+        cameraButton.addTarget(self, action: #selector(presentPicker), for: .touchUpInside)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -93,7 +95,36 @@ class AddPlantViewController: UIViewController {
 //        tabBarController?.selectedIndex = 1
     }
     
-   
+    @IBAction func signOut(_ sender: Any) {
+        AuthServices.shared.signOut { (success) in
+            if success {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
+    
+    // Added Code for image picker
+    @objc func presentPicker() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+}
+
+extension AddPlantViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                imageView.image = imageSelected
+            }
+            if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                imageView.image = imageOriginal
+            }
+            picker.dismiss(animated: true, completion: nil)
+        }
 }
 
 

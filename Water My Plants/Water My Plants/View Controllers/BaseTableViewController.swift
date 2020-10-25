@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import FirebaseAuth
 
 class BaseTableViewController: UITableViewController {
     
@@ -113,6 +114,13 @@ class BaseTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func signout(_ sender: Any) {
+        AuthServices.shared.signOut { (success) in
+            if success {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -6,13 +6,38 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class OpeingViewController: UIViewController {
-
+    
+    var handle: AuthStateDidChangeListenerHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        
+        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+        })
+        if Auth.auth().currentUser != nil {
+            let storyboard = UIStoryboard(name: "HomeView", bundle: Bundle.main)
+            guard
+                let tabBar = storyboard.instantiateViewController(identifier: "TabBarController") as? UITabBarController
+            else { return }
+            navigationController?.pushViewController(tabBar, animated: true)
+        }
     }
     
 

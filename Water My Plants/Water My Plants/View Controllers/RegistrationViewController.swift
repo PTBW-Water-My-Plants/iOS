@@ -11,17 +11,20 @@ import Firebase
 class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     
     var image: UIImage? = nil
-    let authServices = AuthServices()
     var userController: UserController?
+    
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUserImageView()
+        
+        self.navigationController?.isNavigationBarHidden = true
 
         navigationController?.setNavigationBarHidden(true, animated: false)
         passwordTextField.isSecureTextEntry = true
@@ -41,28 +44,35 @@ class RegistrationViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let userDictionary = ["user": self.user]
+        NotificationCenter.default.post(name: .sendUserInfo, object: nil, userInfo: userDictionary)
     }
-    */
+    
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         self.view.endEditing(true)
-                guard let username = usernameTextField.text, !username.isEmpty else { return }
-                guard let email = emailTextField.text, !email.isEmpty else { return }
-                guard let password = passwordTextField.text, !password.isEmpty else { return }
-                authServices.signUp(withUsername: username, email: email, password: password, image: self.image, onSuccess: {
-                    print("Done")
-                }) { (errorMessage) in
-                    print(errorMessage)
-                }
-                performSegue(withIdentifier: "SignUpSegue", sender: nil)
+        guard
+            let email = emailTextField.text, !email.isEmpty,
+            let phoneNumber = phoneNumberTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty
+        else { return }
+        let user = User(password: password, email: email, image: userImageView.image, phone: phoneNumber)
+        self.user = user
+        AuthServices.shared.registration(withUsername: email, password: password, phoneNumber: phoneNumber, image: userImageView.image ?? UIImage()) { (result) in
+            switch result {
+            case .success(let success):
+                print("Was successfule sign up: \(success)")
+                self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
+            case .failure(let error):
+                print("Failed to sign up: \(error)")
             }
+        }
+    }
 }
 
 extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
