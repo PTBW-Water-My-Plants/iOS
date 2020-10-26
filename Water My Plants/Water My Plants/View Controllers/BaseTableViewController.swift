@@ -23,7 +23,7 @@ class BaseTableViewController: UITableViewController {
     
     lazy var fetchResultController: NSFetchedResultsController<Plant> = {
         let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true),
+        fetchRequest.sortDescriptors = [
                                         NSSortDescriptor(key: "nickName", ascending: true)
         ]
         let context = CoreDataStack.shared.mainContext
@@ -90,7 +90,13 @@ class BaseTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let sb = UIStoryboard(name: "PlantDetail", bundle: nil)
+        if let vc = sb.instantiateInitialViewController() as? PlantDetailViewController {
+            vc.plant = fetchResultController.object(at: indexPath)
+            vc.plantController = self.plantController
+            vc.title = "Details"
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -123,16 +129,7 @@ class BaseTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-               if segue.identifier == "CellSegue" {
-                    if let detailVC = segue.destination as? PlantDetailViewController,
-                        let indexPath = tableView.indexPathForSelectedRow {
-                        detailVC.plant = fetchResultController.object(at: indexPath)
-                        detailVC.plantController = self.plantController
-                        detailVC.title = "Details"
-                    }
-                }
-    }
+    
     
 }
 

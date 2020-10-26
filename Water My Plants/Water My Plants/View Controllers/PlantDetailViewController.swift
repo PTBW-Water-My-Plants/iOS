@@ -9,19 +9,33 @@ import UIKit
 
 class PlantDetailViewController: UIViewController {
     
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var speciesLabel: UILabel!
+    @IBOutlet weak var h2oLabel: UILabel!
+    @IBOutlet weak var timeLeftLabel: UILabel!
+    
     
     
     var plantController: WaterMyPlantController?
     var plant: Plant? {
         didSet {
-            
+            updateViews()
         }
     }
     
-    @IBOutlet weak var treeImageView: UIImageView!
-    @IBOutlet weak var speciesLabel: UILabel!
-    @IBOutlet weak var h2oLabel: UILabel!
-    @IBOutlet weak var timeleftLabel: UILabel!
+    func updateViews() {
+        guard isViewLoaded else { return }
+        
+        title = plant?.nickName
+        
+        
+        if plant != nil {
+            
+        } else {
+            
+        }
+    }
     
     
     
@@ -31,7 +45,7 @@ class PlantDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateViews()
         navigationItem.rightBarButtonItem = editButtonItem
         // Do any additional setup after loading the view.
     }
