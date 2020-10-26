@@ -38,6 +38,7 @@
 		CA3E4AC4253EBD39008FB785 /* PlantPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AC3253EBD39008FB785 /* PlantPersistenceController.swift */; };
 		CA3E4AC7253F7F92008FB785 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AC6253F7F91008FB785 /* PlantDetailViewController.swift */; };
 		CA490CEB25426E4300E733E9 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */; };
+		CA490D30254759F100E733E9 /* EncodeDecodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA490D2F254759F100E733E9 /* EncodeDecodeImage.swift */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
 		CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */; };
@@ -104,6 +105,7 @@
 		CA3E4AC3253EBD39008FB785 /* PlantPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPersistenceController.swift; sourceTree = "<group>"; };
 		CA3E4AC6253F7F91008FB785 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
+		CA490D2F254759F100E733E9 /* EncodeDecodeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeDecodeImage.swift; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			children = (
 				CA3E4AB1253E844E008FB785 /* LocalNotificationHelper.swift */,
 				CA3E4AB9253EA2AA008FB785 /* MockData.swift */,
+				CA490D2F254759F100E733E9 /* EncodeDecodeImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				224C2D92253B5E11005FD3C3 /* Plant+Convenience.swift in Sources */,
 				CA3E4AA8253E83D3008FB785 /* AddPlantViewController.swift in Sources */,
 				CA3E4ABA253EA2AB008FB785 /* MockData.swift in Sources */,
+				CA490D30254759F100E733E9 /* EncodeDecodeImage.swift in Sources */,
 				CA3E4AA5253E8386008FB785 /* BaseTableViewController.swift in Sources */,
 				22B6B26B2538833700E16E81 /* RegistrationViewController.swift in Sources */,
 				CA3E4AC4253EBD39008FB785 /* PlantPersistenceController.swift in Sources */,

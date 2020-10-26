@@ -13,6 +13,7 @@ protocol PlantCellDelegate: class {
 
 class PlantCell : UITableViewCell {
     
+    
     weak var delegate: PlantCellDelegate?
     
     //MOCK DATA FOR CELL
@@ -56,7 +57,8 @@ class PlantCell : UITableViewCell {
     
     
     private let plantImage : UIImageView = {
-        let imgView = UIImageView(image: #imageLiteral(resourceName: "0259a365e0a17ef2ebee2176cb3126e5"))
+//        let imgView = UIImageView(image: #imageLiteral(resourceName: "0259a365e0a17ef2ebee2176cb3126e5").circleMask)
+        let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         return imgView
@@ -123,18 +125,12 @@ class PlantCell : UITableViewCell {
     }
     
     private func updateViews() {
-//        let urlData = URL(string: MockData.plantMock.imageUrl!)
-//        let data = try? Data(contentsOf: urlData!)
+        let image = EncodeDecodeImage.convertBase64StringToImage(imageBase64String: plant?.imageUrl ?? "")
+        let h20 = plant?.h2oFrequency.dateVal
         
         plantNameLabel.text = plant?.nickName
-        h20Label.text = "Water me on: \(String(describing: plant?.h2oFrequency))"
-        //MARK: MOCK IMAGE
-        
-        print(plant?.imageUrl)
-        
-//        guard let image = plant?.imageUrl else { return }
-//
-//        plantImage.image = convertBase64StringToImage(imageBase64String: image)
+        h20Label.text = "Water me on: \(h20 ?? Date())"
+        plantImage.image = image?.circleMask
     }
     
 }
@@ -205,5 +201,39 @@ extension UIView {
     }
     
 }
+
+extension Date{
+    var intVal: Int16?{
+        if let d = Date.coordinate{
+             let inteval = Date().timeIntervalSince(d)
+             return Int16(inteval)
+        }
+        return nil
+    }
+
+    // today's time is close to `2020-04-17 05:06:06`
+
+    static let coordinate: Date? = {
+        let dateFormatCoordinate = DateFormatter()
+        dateFormatCoordinate.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if let d = dateFormatCoordinate.date(from: "2020-04-17 05:06:06") {
+            return d
+        }
+        return nil
+    }()
+}
+
+
+extension Int16{
+    var dateVal: Date?{
+        // convert Int to Double
+        let interval = Double(self)
+        if let d = Date.coordinate{
+            return  Date(timeInterval: interval, since: d)
+        }
+        return nil
+    }
+}
+
 
 
