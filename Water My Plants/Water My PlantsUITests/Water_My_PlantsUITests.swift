@@ -9,6 +9,14 @@ import XCTest
 
 class Water_My_PlantsUITests: XCTestCase {
     
+    private var app: XCUIApplication {
+        return XCUIApplication()
+    }
+    
+//    private var signOutButton: XCUIElement {
+//        return app.buttons["ProfileViewController.Sign Out", "", ""]
+//    }
+    
     override func setUp() {
         super.setUp()
             // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,6 +35,9 @@ class Water_My_PlantsUITests: XCTestCase {
             // UI tests must launch the application that they test.
             let app = XCUIApplication()
             app.launch()
+            
+            XCUIApplication().navigationBars["Water_My_Plants.BaseTableView"].buttons["Sign Out"].tap()
+            
 
             // Use recording to get started writing UI tests.
             // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -40,4 +51,8 @@ class Water_My_PlantsUITests: XCTestCase {
                 }
             }
         }
+    
+    func loginTest() {
+        
+    }
 }

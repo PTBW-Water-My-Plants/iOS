@@ -56,7 +56,7 @@ class PlantCell : UITableViewCell {
     
     
     private let plantImage : UIImageView = {
-        let imgView = UIImageView(image: #imageLiteral(resourceName: "0259a365e0a17ef2ebee2176cb3126e5"))
+        let imgView = UIImageView(image: #imageLiteral(resourceName: "d2nie7w-cd7dfb76-c87a-460f-a40e-23baca566cde"))
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         return imgView
