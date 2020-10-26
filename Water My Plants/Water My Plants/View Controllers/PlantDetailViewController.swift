@@ -28,6 +28,8 @@ class PlantDetailViewController: UIViewController {
         guard isViewLoaded else { return }
         
         title = plant?.nickName
+        nickNameLabel.text = plant?.nickName
+        speciesLabel.text = plant?.species
         
         
         if plant != nil {
