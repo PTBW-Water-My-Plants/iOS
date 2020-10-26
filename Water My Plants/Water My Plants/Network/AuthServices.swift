@@ -10,6 +10,11 @@ import Firebase
 import FirebaseAuth
 
 class AuthServices {
+    
+    var currentUser: User?
+    
+    static let shared = AuthServices()
+    
     func signUp(withUsername username: String, email: String, password: String, image: UIImage?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (AuthDataResult, error) in
             if error != nil {
@@ -57,4 +62,47 @@ class AuthServices {
             }
         }
     }
+    
+    func registration(withUsername email: String, password: String, phoneNumber: String, image: UIImage, completion: @escaping(Result<Bool, Error>) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                print("Error sign up: \(error)")
+                completion(.failure(error))
+                return
+            }
+            let user = User(password: password, email: email, image: image, phone: phoneNumber)
+            self.currentUser = user
+            completion(.success(true))
+        }
+        
+    }
+    
+    
+    func signin(email: String, password: String, phone: String, image: UIImage, completion: @escaping(Result<User, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+            if let error = error {
+                print("Failed to make a login: \(error)")
+                completion(.failure(error))
+                return
+            }
+            let user = User(password: password, email: email, image: image, phone: phone)
+            self.currentUser = user
+            completion(.success(user))
+        }
+    }
+    
+    private init(){
+        
+    }
+    
+    func signOut(completion: @escaping(Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+        } catch let error {
+            print("Log out unsuccessful: \(error)")
+            completion(false)
+        }
+    }
+    
 }

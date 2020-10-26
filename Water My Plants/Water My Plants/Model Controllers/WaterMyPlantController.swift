@@ -7,9 +7,7 @@
 
 import Foundation
 import CoreData
-
-
-
+import FirebaseStorage
 
 class WaterMyPlantController {
     
@@ -17,9 +15,11 @@ class WaterMyPlantController {
     var plant: PlantRepresentation?
     let userController = UserController()
     public var completion: ((String, String, Date) -> Void)?
-    let baseURL = URL(string: "https://water-my-plants-73fe4.firebaseio.com/")!
+//    let baseURL = URL(string: "https://water-my-plants-73fe4.firebaseio.com/")!
+    let baseURL = URL(string: "https://water-my-plant-1b44a.firebaseio.com/")!
+    let imageRef = Storage.storage().reference().child("images")
     
-    //let baseURL = URL(string: "https://water-my-plant-1b44a.firebaseio.com/")!
+    
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
     
@@ -30,7 +30,7 @@ class WaterMyPlantController {
     
     
     // MARK: - CRUD
-    func createPlant(with nickname: String, species: String, h20Frequency: Int16, image: String?) {
+    func createPlant(with nickname: String, species: String, h20Frequency: Date, image: String?) {
         let plant = PlantRepresentation(id: UUID().uuidString, h2oFrequency: h20Frequency, imageUrl: nil, nickName: nickname, species: species)
         plants.append(plant)
         saveToPersistence()
@@ -65,7 +65,7 @@ class WaterMyPlantController {
     }
     
     
-    func updatePlant(with plant: PlantRepresentation, nickname: String, species: String, h2oFrequency: Int16) {
+    func updatePlant(with plant: PlantRepresentation, nickname: String, species: String, h2oFrequency: Date) {
         guard let index = plants.firstIndex(of: plant) else { return }
         var scratch = plants[index]
         scratch.nickName = nickname
@@ -74,7 +74,6 @@ class WaterMyPlantController {
     }
     
     func sendPlantToServer(plant: Plant, completion: @escaping CompletionHandler = { _ in }) {
-        //print(auth.bearer)
         guard let uuid = plant.id else {
             completion(.failure(.noId))
             return
@@ -89,7 +88,10 @@ class WaterMyPlantController {
                 completion(.failure(.noEncode))
                 return
             }
-            request.httpBody = try JSONEncoder().encode(represenation)
+            
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .secondsSince1970
+            request.httpBody = try encoder.encode(represenation)
         } catch {
             NSLog("Error encoding plant: \(plant), \(error)")
             completion(.failure(.noEncode))
@@ -161,6 +163,26 @@ class WaterMyPlantController {
         }.resume()
     }
     
+    func uploadImageData(with image: Data, completion: @escaping (Result <String, Error>) -> Void) {
+        
+        let imagePath = imageRef.child(plant?.id ?? UUID().uuidString)
+        imagePath.putData(image, metadata: nil) { (storageMetaData, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            imagePath.downloadURL { (url, error) in
+                if error != nil {
+                    NSLog("Error getting Image URL")
+                    completion(.failure(error!))
+                    return
+                }
+                if let url = url {
+                    print(url.absoluteString)
+                    completion(.success(url.absoluteString))
+                }
+            }
+        }
+        
+    }
 }
-
-

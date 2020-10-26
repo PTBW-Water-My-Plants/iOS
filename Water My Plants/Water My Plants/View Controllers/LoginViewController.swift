@@ -6,23 +6,35 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
+    
+    var handle: AuthStateDidChangeListenerHandle?
+    
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-
-    let authServices = AuthServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+//        self.navigationController?.isNavigationBarHidden = true
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         passwordTextField.isSecureTextEntry = true
-        disableLoginButton()
+        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+        })
+        if Auth.auth().currentUser != nil {
+            let storyboard = UIStoryboard(name: "HomeView", bundle: Bundle.main)
+            guard
+                let tabBar = storyboard.instantiateViewController(identifier: "TabBarController") as? UITabBarController
+            else { return }
+            navigationController?.present(tabBar, animated: true, completion: nil)
+        }
+
     }
 
     /*
@@ -35,38 +47,34 @@ class LoginViewController: UIViewController {
     }
     */
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
     @IBAction func logInButtonTapped(_ sender: Any) {
+        guard
+            let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty,
+            let username = usernameTextField.text, !username.isEmpty
+        else { return }
         
-        
-        guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty,
-              let username = usernameTextField.text, !username.isEmpty else { return }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { AuthDataResult, error in
-            if error != nil {
-                print("Failed to make a login")
-                return
+        AuthServices.shared.signin(email: email, password: password, phone: "", image: UIImage()) { (result) in
+            switch result {
+            case .success(let success):
+                print("Was successfule sign in: \(success)")
+                self.performSegue(withIdentifier: "LoginHomeView", sender: nil)
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.presentUserInfoAlert(title: "Error", message: "\(error.localizedDescription)")
+                }
+                print("Failed to sign in: \(error)")
             }
-            print("Was able to log in to the home view")
-            self.performSegue(withIdentifier: "LoginHomeView", sender: nil)
         }
-              
-        emailTextField.text = ""
-        passwordTextField.text = ""
-        
     }
-    
-    func disableLoginButton() {
-        if emailTextField.text?.isEmpty == true {
-            loginButton.isEnabled = false
-        } else if passwordTextField.text?.isEmpty == true {
-            loginButton.isEnabled = false
-        } else if usernameTextField.text?.isEmpty == true {
-            loginButton.isEnabled = false
-        } else {
-            loginButton.isEnabled = true
-        }
-        
-    }
-    
 }

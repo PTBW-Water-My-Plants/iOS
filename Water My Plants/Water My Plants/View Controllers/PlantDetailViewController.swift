@@ -9,19 +9,49 @@ import UIKit
 
 class PlantDetailViewController: UIViewController {
     
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var speciesLabel: UILabel!
+    @IBOutlet weak var h2oLabel: UILabel!
+    @IBOutlet weak var timeLeftLabel: UILabel!
+    
+    
+    
     var plantController: WaterMyPlantController?
-    var plant: PlantRepresentation? {
+    var plant: Plant? {
         didSet {
+            updateViews()
+        }
+    }
+    
+//    @IBAction func updatePlantButton(_ sender: UIButton) {
+//        let context = CoreDataStack.shared.mainContext
+//        let existingTodos = try context.fetch(fetchRequest)
+//        for plant in existingTodos {
+//            guard let id = plant.id,
+//                  let representation = representationByID[id] else { continue }
+//            self.update(plant: plant, with: representation)
+//            plantCreate.removeValue(forKey: id)
+//        }
+//    }
+    
+    func updateViews() {
+        guard isViewLoaded else { return }
+        
+        title = plant?.nickName
+        nickNameLabel.text = plant?.nickName
+        speciesLabel.text = plant?.species
+        h2oLabel.text = plant?.imageUrl
+        
+        
+        
+        if plant != nil {
+            
+        } else {
             
         }
     }
     
-    @IBOutlet weak var nicknameTextField: UITextField!
-    @IBOutlet weak var speciesTextField: UITextField!
-    @IBOutlet weak var h20FrequencyTextField: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var sameraButton: UIButton!
-    private var countDownTime: UIDatePicker?
     
     
 
@@ -30,7 +60,7 @@ class PlantDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateViews()
         navigationItem.rightBarButtonItem = editButtonItem
         // Do any additional setup after loading the view.
     }

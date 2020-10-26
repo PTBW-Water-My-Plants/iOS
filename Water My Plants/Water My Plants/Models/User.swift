@@ -5,10 +5,12 @@
 //  Created by Sammy Alvarado on 10/17/20.
 //
 
-import Foundation
+import UIKit
 
 
-struct User: Codable {
-    let username: String
+struct User: Equatable {
     let password: String
+    let email: String
+    let image: UIImage?
+    let phone: String
 }
