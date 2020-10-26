@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
+    
     var handle: AuthStateDidChangeListenerHandle?
 
     var user: User?
@@ -33,10 +34,16 @@ class ProfileViewController: UIViewController {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if let user = user {
                 self.usernameTextField.text = user.email
-                
             }
+            
+//            if let user = user {
+//                self.phoneNumberTextField.text = user.phoneNumber
+//            }
+    
         })
     }
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handle!)
@@ -64,21 +71,6 @@ class ProfileViewController: UIViewController {
 //        }
     }
     
-    func getDetails() {
-//        guard let userController = userController,
-//              let userName = userName else { return }
-        
-//        userController.fetchUsersDetails(for: userName) { (result) in
-//            switch result {
-//            case .success(let user):
-//                DispatchQueue.main.async {
-//                    self.updateViews(with: user)
-//                }
-//            case .failure(let error):
-//                print("Error fetching user detials \(error)")
-//            }
-//        }
-    }
     
     func updateViews(with users: User) {
         phoneNumberTextField.text = users.email

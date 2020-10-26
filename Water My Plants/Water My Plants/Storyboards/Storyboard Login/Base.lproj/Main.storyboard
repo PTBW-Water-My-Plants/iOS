@@ -11,7 +11,7 @@
         <!--Opeing View Controller-->
         <scene sceneID="ej9-lm-pFf">
             <objects>
-                <viewController id="tGo-8o-1mw" customClass="OpeingViewController" customModule="Water_My_Plants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationVC" id="tGo-8o-1mw" customClass="OpeingViewController" customModule="Water_My_Plants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d0o-p5-L2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
