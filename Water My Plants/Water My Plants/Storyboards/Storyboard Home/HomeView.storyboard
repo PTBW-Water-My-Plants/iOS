@@ -83,6 +83,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="UF4-IM-Qws">
                             <connections>
                                 <action selector="signOut:" destination="hic-UY-CLf" id="g0E-eN-MiW"/>
+                                <segue destination="lTg-kw-Lqq" kind="unwind" unwindAction="unwind:" id="lOb-wI-1Bx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -95,6 +96,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejX-RP-tMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="lTg-kw-Lqq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2346" y="1683"/>
         </scene>
@@ -146,11 +148,13 @@
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="XPr-K3-sqd">
                             <connections>
                                 <action selector="signout:" destination="3MT-SP-iMu" id="R0N-7y-BGP"/>
+                                <segue destination="X0K-9w-YuL" kind="unwind" unwindAction="unwind:" id="yWe-f7-rGE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEF-gZ-ndm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="X0K-9w-YuL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="47.826086956521742" y="1670.7589285714284"/>
         </scene>

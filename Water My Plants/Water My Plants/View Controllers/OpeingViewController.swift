@@ -15,9 +15,9 @@ class OpeingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        self.navigationController?.isNavigationBarHidden = true
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+//        
+//        self.navigationController?.isNavigationBarHidden = true
         
     }
     
@@ -40,6 +40,13 @@ class OpeingViewController: UIViewController {
         }
     }
     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        AuthServices.shared.signOut { (success) in
+            if success {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

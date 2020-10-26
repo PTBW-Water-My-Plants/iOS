@@ -102,6 +102,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="bUh-Ea-3fD">
                             <connections>
                                 <action selector="signOut:" destination="CU6-rC-AEY" id="i5a-bn-lmX"/>
+                                <segue destination="emk-4h-k3l" kind="unwind" unwindAction="unwind:" id="veG-Ba-jw6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="v3D-yU-Wkw"/>
@@ -121,7 +122,6 @@
         <!--Profile-->
         <scene sceneID="b2X-s5-7nQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZRE-jl-vkq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AOb-tC-olo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="xtg-Ti-9j5"/>
                     <toolbarItems/>
@@ -134,6 +134,7 @@
                         <segue destination="CU6-rC-AEY" kind="relationship" relationship="rootViewController" id="6hz-bw-CxT"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZRE-jl-vkq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="115.94202898550725" y="-40.178571428571423"/>
         </scene>
