@@ -15,9 +15,8 @@ class OpeingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.setNavigationBarHidden(true, animated: false)
-//        
-//        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.isNavigationBarHidden = true
         
     }
     
