@@ -24,7 +24,10 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        self.navigationController?.isNavigationBarHidden = true
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         self.user = AuthServices.shared.currentUser
         navigationItem.rightBarButtonItem = editButtonItem
     }

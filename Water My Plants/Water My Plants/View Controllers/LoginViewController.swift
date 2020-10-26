@@ -22,8 +22,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
 //        self.navigationController?.isNavigationBarHidden = true
-//
 //        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         passwordTextField.isSecureTextEntry = true
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
         })
