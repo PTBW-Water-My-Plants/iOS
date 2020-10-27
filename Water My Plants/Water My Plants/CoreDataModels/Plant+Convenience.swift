@@ -13,12 +13,11 @@ extension Plant {
     var plantRepresentation: PlantRepresentation? {
         
         guard let  id = id,
-//        let h2oFrequency = h2oFrequency, // MARK: Must be optional warning???
         let nickName = nickName,
         let species = species else { return nil }
         
         return PlantRepresentation(id: id.uuidString ,
-                                   h2oFrequency: h2oFrequency,
+                                   h2oFrequency: h2oFrequency ?? Date(),
                                    imageUrl: imageUrl,
                                    nickName: nickName ,
                                    species: species )
@@ -26,7 +25,7 @@ extension Plant {
     
     @discardableResult convenience init(id: UUID = UUID(),
                                         nickName: String,
-                                        h2oFrequency: Int16,
+                                        h2oFrequency: Date,
                                         imageUrl: String? = nil,
                                         species: String,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext

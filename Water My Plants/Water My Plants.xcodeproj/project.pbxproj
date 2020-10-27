@@ -40,6 +40,7 @@
 		CA3E4AC4253EBD39008FB785 /* PlantPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AC3253EBD39008FB785 /* PlantPersistenceController.swift */; };
 		CA3E4AC7253F7F92008FB785 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AC6253F7F91008FB785 /* PlantDetailViewController.swift */; };
 		CA490CEB25426E4300E733E9 /* PlantDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */; };
+		CA490D712547919100E733E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA490D702547919100E733E9 /* Constants.swift */; };
 		CA8E3D452536B2E900FE0E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */; };
 		CA8E3D472536B2E900FE0E24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */; };
 		CA8E3D4C2536B2E900FE0E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E3D4A2536B2E900FE0E24 /* Main.storyboard */; };
@@ -108,6 +109,7 @@
 		CA3E4AC3253EBD39008FB785 /* PlantPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPersistenceController.swift; sourceTree = "<group>"; };
 		CA3E4AC6253F7F91008FB785 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantDetail.storyboard; sourceTree = "<group>"; };
+		CA490D702547919100E733E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CA8E3D412536B2E900FE0E24 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E3D442536B2E900FE0E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8E3D462536B2E900FE0E24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,8 +194,6 @@
 				2271CC902539549B00F5B118 /* CoreDataStack.swift */,
 				224C2D8E253B5DEC005FD3C3 /* PlantRepresentation.swift */,
 				224C2D91253B5E11005FD3C3 /* Plant+Convenience.swift */,
-				229FD165253BC9A800E92994 /* User.swift */,
-				22FF14B825412666002BCECF /* Bearer.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -291,8 +291,9 @@
 			children = (
 				CA3E4AB1253E844E008FB785 /* LocalNotificationHelper.swift */,
 				CA3E4AB9253EA2AA008FB785 /* MockData.swift */,
-				22AE74522544AE9200F93F5D /* UIViewController+Alert.swift */,
 				222DAC7725450F03009F6126 /* Notification.swift */,
+				22AE74522544AE9200F93F5D /* UIViewController+Alert.swift */,
+				CA490D702547919100E733E9 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -314,6 +315,15 @@
 				CA490CEA25426E4300E733E9 /* PlantDetail.storyboard */,
 			);
 			path = "Stroyboard PlantDetail";
+			sourceTree = "<group>";
+		};
+		CA490D102544992700E733E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				229FD165253BC9A800E92994 /* User.swift */,
+				22FF14B825412666002BCECF /* Bearer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CA8E3D382536B2E900FE0E24 = {
@@ -342,6 +352,7 @@
 		CA8E3D432536B2E900FE0E24 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
+				CA490D102544992700E733E9 /* Models */,
 				CA3E4AB0253E8429008FB785 /* Helpers */,
 				CA3E4AAA253E83DD008FB785 /* Views */,
 				2281190E253BF1AF00539C68 /* Network */,
@@ -679,6 +690,7 @@
 				22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */,
 				CA3E4AAD253E8408008FB785 /* PlantTableViewCell.swift in Sources */,
 				CA3E4AC7253F7F92008FB785 /* PlantDetailViewController.swift in Sources */,
+				CA490D712547919100E733E9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

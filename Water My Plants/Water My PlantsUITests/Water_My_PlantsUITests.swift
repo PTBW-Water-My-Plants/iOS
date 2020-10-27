@@ -65,8 +65,4 @@ class Water_My_PlantsUITests: XCTestCase {
                 }
             }
         }
-    
-    func loginTest() {
-        
-    }
 }
