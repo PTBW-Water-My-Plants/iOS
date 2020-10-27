@@ -36,8 +36,9 @@ class Water_My_PlantsUITests: XCTestCase {
 
     func testLoging() {
             // UI tests must launch the application that they test.
+
         
-        
+
         
         
         let app = XCUIApplication()
@@ -50,12 +51,7 @@ class Water_My_PlantsUITests: XCTestCase {
         emailTextField.tap()
         app/*@START_MENU_TOKEN@*/.staticTexts["LOG IN"]/*[[".buttons[\"LOG IN\"].staticTexts[\"LOG IN\"]",".staticTexts[\"LOG IN\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         XCTAssertEqual(app.buttons.element.title, "Login")
-        
-            
-        
-        
-        
-                
+
 
             // Use recording to get started writing UI tests.
             // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -69,4 +65,8 @@ class Water_My_PlantsUITests: XCTestCase {
                 }
             }
         }
+    
+    func loginTest() {
+        
+    }
 }
