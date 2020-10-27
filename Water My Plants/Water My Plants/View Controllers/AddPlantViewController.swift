@@ -10,7 +10,7 @@ import UIKit
 class AddPlantViewController: UIViewController {
     
     // MARK: Referance
-    var plantController: WaterMyPlantController?
+    var plantController = WaterMyPlantController()
     var plant: PlantRepresentation?
     let localNotifHelper = LocalNotificationHelper()
     
@@ -21,7 +21,8 @@ class AddPlantViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     private var countDownTime: UIDatePicker?
-    
+    var imagePicker = UIImagePickerController()
+    var dateFromDatePicker = Date()
     
     // MARK: - View Loading
     override func viewDidLoad() {
@@ -29,11 +30,12 @@ class AddPlantViewController: UIViewController {
         setupDatePicker()
         
         cameraButton.addTarget(self, action: #selector(presentPicker), for: .touchUpInside)
+        imagePicker.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-       
+        
     }
     
     // MARK: - Private
@@ -45,54 +47,67 @@ class AddPlantViewController: UIViewController {
         
         h20FrequencyTextField.inputView = countDownTime
         
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddPlantViewController.viewTapped(gestureReconizer:)))
         view.addGestureRecognizer(tapGesture)
     }
     
     @objc func dateChanged(datePicker: UIDatePicker) {
-          let formatter = DateFormatter()
-          formatter.dateFormat = "MM/dd/yy HH:mm a"
-          
-          h20FrequencyTextField.text = formatter.string(from: datePicker.date)
-      }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        dateFromDatePicker = datePicker.date
+        h20FrequencyTextField.text = formatter.string(from: datePicker.date)
+    }
     
     @objc func viewTapped(gestureReconizer: UITapGestureRecognizer) {
-           view.endEditing(true)
-       }
+        view.endEditing(true)
+    }
     
     // MARK: -  Actions
+    
+    @IBAction func cameraButtonTapped(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         //Saving data to server
         guard let nickname = nicknameTextField.text, !nickname.isEmpty,
-            let date = h20FrequencyTextField.text,
-            let species = speciesTextField.text else { return }
-        
-        let formatterToString = DateFormatter()
-        formatterToString.timeZone = .current
-        formatterToString.dateFormat = "MM/dd/yy HH:mm a"
-        
+              let date = h20FrequencyTextField.text,
+              let species = speciesTextField.text,
+              let image = imageView.image?.jpegData(compressionQuality: 0.5) else { return }
         
         let formatterToDateFromString = DateFormatter()
         formatterToDateFromString.timeZone = .current
-        formatterToDateFromString.date(from: date)
         
-        let plant = Plant(nickName: nickname, h2oFrequency: 1, species: species)
-        plantController?.sendPlantToServer(plant: plant)
+        let timeDate = formatterToDateFromString.date(from: date)
+        // convert to Integer
         
-        do {
-            try CoreDataStack.shared.mainContext.save()
-            navigationController?.dismiss(animated: true, completion: nil)
-            print(plant)
-        } catch {
-            NSLog("Error saving managed object context with error: \(error)")
+        
+        var plant = Plant()
+        plantController.uploadImageData(with: image) { (result) in
+            switch result {
+            case .success(let urlString):
+                plant = Plant(nickName: nickname, h2oFrequency: self.dateFromDatePicker, imageUrl: urlString, species: species)
+                self.plantController.sendPlantToServer(plant: plant)
+                do {
+                    try CoreDataStack.shared.mainContext.save()
+                    self.tabBarController?.selectedIndex = 0
+                } catch {
+                    NSLog("Error saving managed object context with error: \(error)")
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
-
         localNotifHelper.requestAuthorizationStatus { success in
             if success == true {
                 self.localNotifHelper.scheduleDailyReminderNotification(name: nickname, times: Date(), calendar: Calendar.current)
             }
         }
-//        tabBarController?.selectedIndex = 1
     }
     
     @IBAction func signOut(_ sender: Any) {
@@ -117,15 +132,16 @@ class AddPlantViewController: UIViewController {
 extension AddPlantViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-                imageView.image = imageSelected
-            }
-            if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                imageView.image = imageOriginal
-            }
-            picker.dismiss(animated: true, completion: nil)
+        if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            imageView.image = imageSelected
         }
+        if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = imageOriginal
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
+
 
 
 

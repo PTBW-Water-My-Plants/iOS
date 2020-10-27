@@ -24,12 +24,25 @@ class PlantDetailViewController: UIViewController {
         }
     }
     
+//    @IBAction func updatePlantButton(_ sender: UIButton) {
+//        let context = CoreDataStack.shared.mainContext
+//        let existingTodos = try context.fetch(fetchRequest)
+//        for plant in existingTodos {
+//            guard let id = plant.id,
+//                  let representation = representationByID[id] else { continue }
+//            self.update(plant: plant, with: representation)
+//            plantCreate.removeValue(forKey: id)
+//        }
+//    }
+    
     func updateViews() {
         guard isViewLoaded else { return }
         
         title = plant?.nickName
         nickNameLabel.text = plant?.nickName
         speciesLabel.text = plant?.species
+        h2oLabel.text = plant?.imageUrl
+        
         
         
         if plant != nil {

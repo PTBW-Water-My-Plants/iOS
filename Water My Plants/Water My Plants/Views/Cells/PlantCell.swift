@@ -13,22 +13,8 @@ protocol PlantCellDelegate: class {
 
 class PlantCell : UITableViewCell {
     
-    weak var delegate: PlantCellDelegate?
     
-    //MOCK DATA FOR CELL
-//    var plantMock: PlantRepresentation? {
-//        didSet {
-//            //MOCK DATA
-//            let urlData = URL(string: MockData.plantMock.imageUrl!)
-//            let data = try? Data(contentsOf: urlData!)
-//            
-//            plantNameLabel.text = MockData.plantMock.nickName
-//            h20Label.text = String(MockData.plantMock.h2oFrequency)
-//            plantImage.image = UIImage(data: data!)?.circleMask
-//            
-//            
-//        }
-//    }
+    weak var delegate: PlantCellDelegate?
     
     var plant: Plant? {
         didSet {
@@ -56,7 +42,8 @@ class PlantCell : UITableViewCell {
     
     
     private let plantImage : UIImageView = {
-        let imgView = UIImageView(image: #imageLiteral(resourceName: "d2nie7w-cd7dfb76-c87a-460f-a40e-23baca566cde"))
+        //        let imgView = UIImageView(image: #imageLiteral(resourceName: "0259a365e0a17ef2ebee2176cb3126e5").circleMask)
+        let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         return imgView
@@ -71,14 +58,14 @@ class PlantCell : UITableViewCell {
         
         plantImage.anchor(top: topAnchor,
                           left: leftAnchor,
-                          bottom: bottomAnchor,
+                          bottom: nil,
                           right: nil,
                           paddingTop: 5,
                           paddingLeft: 5,
                           paddingBottom: 5,
                           paddingRight: 0,
                           width: 90,
-                          height: 0,
+                          height: 90,
                           enableInsets: false)
         
         plantNameLabel.anchor(top: topAnchor,
@@ -103,8 +90,6 @@ class PlantCell : UITableViewCell {
                         width: frame.size.width / 2,
                         height: 0,
                         enableInsets: false)
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -116,14 +101,19 @@ class PlantCell : UITableViewCell {
         
     }
     
+    
     private func updateViews() {
-        let urlData = URL(string: MockData.plantMock.imageUrl!)
-        let data = try? Data(contentsOf: urlData!)
+        guard let stringURL = plant?.imageUrl else { return }
+        
+        if let url = URL(string: stringURL),
+           let data = try? Data(contentsOf: url) {
+            plantImage.image = UIImage(data: data)?.circleMask
+        }
+        guard let h20 = plant?.h2oFrequency else { return }
+        
         
         plantNameLabel.text = plant?.nickName
-        h20Label.text = "Water me on: \(String(describing: plant?.h2oFrequency))"
-        //MARK: MOCK IMAGE
-        plantImage.image = UIImage(data: data!)?.circleMask
+        h20Label.text = "Water me on: \(dateFormatter.string(from: h20))"
     }
     
 }
@@ -138,6 +128,7 @@ extension UIImage {
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 5
         imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
         UIGraphicsBeginImageContext(imageView.bounds.size)
         imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let result = UIGraphicsGetImageFromCurrentImageContext()!
@@ -194,5 +185,10 @@ extension UIView {
     }
     
 }
+
+
+
+
+
 
 
