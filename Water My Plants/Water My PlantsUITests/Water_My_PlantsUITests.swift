@@ -6,22 +6,25 @@
 //
 
 import XCTest
+@testable import Water_My_Plants
 
 class Water_My_PlantsUITests: XCTestCase {
     
-    private var app: XCUIApplication {
-        return XCUIApplication()
+    private var newMessageTextFieldTextView: XCUIElement {
+       return app.textViews["MessageDetailViewController.messageTextView"]
     }
     
-//    private var signOutButton: XCUIElement {
-//        return app.buttons["ProfileViewController.Sign Out", "", ""]
-//    }
+    var app = XCUIApplication()
     
     override func setUp() {
         super.setUp()
             // Put setup code here. This method is called before the invocation of each test method in the class.
             // In UI tests it is usually best to stop immediately when a failure occurs.
             continueAfterFailure = false
+        
+        let app = XCUIApplication()
+        app.launchArguments = ["UITesting"]
+        app.launch()
 
             // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         }
@@ -31,13 +34,24 @@ class Water_My_PlantsUITests: XCTestCase {
             // Put teardown code here. This method is called after the invocation of each test method in the class.
         }
 
-        func testExample() {
+    func testLoging() {
             // UI tests must launch the application that they test.
-            let app = XCUIApplication()
-            app.launch()
-            
-            XCUIApplication().navigationBars["Water_My_Plants.BaseTableView"].buttons["Sign Out"].tap()
-            
+
+        
+
+        
+        
+        let app = XCUIApplication()
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["LOG IN"]/*[[".buttons[\"LOG IN\"].staticTexts[\"LOG IN\"]",".staticTexts[\"LOG IN\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCTAssertEqual(app.buttons.element.title, "Login")
+
 
             // Use recording to get started writing UI tests.
             // Use XCTAssert and related functions to verify your tests produce the correct results.
