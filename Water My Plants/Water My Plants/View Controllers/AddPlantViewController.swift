@@ -80,12 +80,6 @@ class AddPlantViewController: UIViewController {
               let species = speciesTextField.text,
               let image = imageView.image?.jpegData(compressionQuality: 0.5) else { return }
         
-        let formatterToDateFromString = DateFormatter()
-        formatterToDateFromString.timeZone = .current
-        
-        let timeDate = formatterToDateFromString.date(from: date)
-        // convert to Integer
-        
         
         var plant = Plant()
         plantController.uploadImageData(with: image) { (result) in
@@ -96,6 +90,11 @@ class AddPlantViewController: UIViewController {
                 do {
                     try CoreDataStack.shared.mainContext.save()
                     self.tabBarController?.selectedIndex = 0
+                    self.h20FrequencyTextField.text = ""
+                    self.speciesTextField.text = ""
+                    self.nicknameTextField.text = ""
+                    self.imageView.image = nil
+                    
                 } catch {
                     NSLog("Error saving managed object context with error: \(error)")
                 }
