@@ -29,6 +29,7 @@
 		70B981C8058D4F8CEB82CA07 /* Pods_Water_My_PlantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50ECF720BF9B91617745ECF /* Pods_Water_My_PlantsUITests.framework */; };
 		C23A6474254116A800183FCE /* WaterMyPlantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A6473254116A800183FCE /* WaterMyPlantsTests.swift */; };
 		C23A6521254136E900183FCE /* Water_My_PlantsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A6520254136E900183FCE /* Water_My_PlantsUITests.swift */; };
+		C23A657D254700EA00183FCE /* PlantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A657C254700E900183FCE /* PlantsModel.swift */; };
 		CA3E4AA5253E8386008FB785 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AA4253E8385008FB785 /* BaseTableViewController.swift */; };
 		CA3E4AA8253E83D3008FB785 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AA7253E83D3008FB785 /* AddPlantViewController.swift */; };
 		CA3E4AAD253E8408008FB785 /* PlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AAC253E8408008FB785 /* PlantTableViewCell.swift */; };
@@ -97,6 +98,7 @@
 		C23A651E254136E900183FCE /* Water My PlantsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Water My PlantsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23A6520254136E900183FCE /* Water_My_PlantsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water_My_PlantsUITests.swift; sourceTree = "<group>"; };
 		C23A6522254136E900183FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C23A657C254700E900183FCE /* PlantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsModel.swift; sourceTree = "<group>"; };
 		CA3E4AA4253E8385008FB785 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		CA3E4AA7253E83D3008FB785 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
 		CA3E4AAC253E8408008FB785 /* PlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTableViewCell.swift; sourceTree = "<group>"; };
