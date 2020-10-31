@@ -23,11 +23,11 @@
 		22B6B26B2538833700E16E81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B6B26A2538833700E16E81 /* RegistrationViewController.swift */; };
 		22B71106253D3C9600C68699 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B71105253D3C9600C68699 /* LoginViewController.swift */; };
 		22BB1030253E6F5000A7CCDA /* OpeingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */; };
+		22F079CF254B838700875A70 /* WaterMyPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F079CE254B838700875A70 /* WaterMyPlants.swift */; };
 		22FF14B925412666002BCECF /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF14B825412666002BCECF /* Bearer.swift */; };
 		22FF14BD2541279A002BCECF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FF14BC2541279A002BCECF /* Profile.storyboard */; };
 		22FF14C025412821002BCECF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF14BF25412821002BCECF /* ProfileViewController.swift */; };
 		70B981C8058D4F8CEB82CA07 /* Pods_Water_My_PlantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50ECF720BF9B91617745ECF /* Pods_Water_My_PlantsUITests.framework */; };
-		C23A6474254116A800183FCE /* WaterMyPlantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A6473254116A800183FCE /* WaterMyPlantsTests.swift */; };
 		C23A6521254136E900183FCE /* Water_My_PlantsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A6520254136E900183FCE /* Water_My_PlantsUITests.swift */; };
 		C23A657D254700EA00183FCE /* PlantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A657C254700E900183FCE /* PlantsModel.swift */; };
 		CA3E4AA5253E8386008FB785 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E4AA4253E8385008FB785 /* BaseTableViewController.swift */; };
@@ -82,6 +82,7 @@
 		22B6B26A2538833700E16E81 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		22B71105253D3C9600C68699 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22BB102F253E6F5000A7CCDA /* OpeingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeingViewController.swift; sourceTree = "<group>"; };
+		22F079CE254B838700875A70 /* WaterMyPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMyPlants.swift; sourceTree = "<group>"; };
 		22FF14B825412666002BCECF /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		22FF14BC2541279A002BCECF /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		22FF14BF25412821002BCECF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +95,6 @@
 		6166166176CB16B1107E645F /* Pods-Water My PlantsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My PlantsUITests.release.xcconfig"; path = "Target Support Files/Pods-Water My PlantsUITests/Pods-Water My PlantsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C23A64652541167700183FCE /* Water My PlantsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Water My PlantsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23A64692541167800183FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C23A6473254116A800183FCE /* WaterMyPlantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WaterMyPlantsTests.swift; path = ../../../../../Documents/WaterMyPlantsTests.swift; sourceTree = "<group>"; };
 		C23A651E254136E900183FCE /* Water My PlantsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Water My PlantsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23A6520254136E900183FCE /* Water_My_PlantsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water_My_PlantsUITests.swift; sourceTree = "<group>"; };
 		C23A6522254136E900183FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				C23A64692541167800183FCE /* Info.plist */,
-				C23A6473254116A800183FCE /* WaterMyPlantsTests.swift */,
+				22F079CE254B838700875A70 /* WaterMyPlants.swift */,
 			);
 			path = "Water My PlantsTests";
 			sourceTree = "<group>";
@@ -441,7 +441,7 @@
 				TargetAttributes = {
 					C23A64642541167700183FCE = {
 						CreatedOnToolsVersion = 12.0.1;
-						LastSwiftMigration = 1200;
+						LastSwiftMigration = 1210;
 						TestTargetID = CA8E3D402536B2E900FE0E24;
 					};
 					C23A651D254136E900183FCE = {
@@ -648,7 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23A6474254116A800183FCE /* WaterMyPlantsTests.swift in Sources */,
+				22F079CF254B838700875A70 /* WaterMyPlants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

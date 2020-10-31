@@ -30,6 +30,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05S-TL-mOc">
                                         <rect key="frame" x="0.0" y="25.5" width="374" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Userinfo"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
